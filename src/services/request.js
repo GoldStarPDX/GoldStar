@@ -13,7 +13,7 @@ store.subscribe(() => {
   }
 });
 
-export const getStoreToken = () => storage.token;
+export const getStoredToken = () => storage.token;
 
 export const API_URL = '/api';
 

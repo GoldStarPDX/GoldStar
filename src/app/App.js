@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
+import Routes from './Routes';
 
 class App extends Component {
   render() {
     return (
       <div>
-        <div>
-          <h2>Welcome to React</h2>
-        </div>
-        <p>
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+        <Router>
+          <Routes />
+        </Router>
       </div>
     );
   }
