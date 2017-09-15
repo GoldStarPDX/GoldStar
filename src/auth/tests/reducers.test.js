@@ -2,39 +2,27 @@ import assert from 'assert';
 import * as actions from '../constants';
 import auth, { user, token, error } from '../reducers';
 
-const testPassThru = reducer => {
-  it('pass-thru', () => {
-    const state = {};
-    assert[operator](reducer(state, { type: 'NO_ACTION' }), state);
-  });
-};
-
-const testInit = (reducer, expected) => {
-  it('initial value', () => {
-    assert.deepEqual(reducer(undefined, { type: 'NO_ACTION' }), initial);
-  });
-};
-
-const testPassThruAndInit = (reducer, initial, { operator = 'strictEqual' } = {}) => {
-  it('pass-thru', () => {
-    const state = {};
-    assert[operator](reducer(state, { type: 'NO_ACTION' }), state);
-  });
-
-  it('initial value', () => {
-    assert[operator](reducer(undefined, { type: 'NO_ACTION' }), initial);
-  });
-};
-
 describe('Combined Auth Reducer', () => {
-  testPassThruAndInit(auth,
-    { token: null, user: null, error: null },
-    { operator: 'deepEqual' });
+  it('initial value', () => {
+    assert.deepEqual(auth(undefined, { type: 'NO_ACTION' }), { token: null, user: null, error: null });
+  });
+
+  it('pass-thru', () => {
+    const state = { token: null, user: null, error: null };
+    assert.strictEqual(auth(state, { type: 'NO_ACTION' }), state);
+  });
 });
 
 describe('User Reducer', () => {
-  testPassThru(user);
-  testInit(user, null);
+  
+  it('initial value', () => {
+    assert.equal(user(undefined, { type: 'NO_ACTION' }), null);
+  });
+
+  it('pass-thru', () => {
+    const state = 'user';
+    assert.strictEqual(user(state, { type: 'NO_ACTION' }), state);
+  });
 
   it('Fetched', () => {
     const userState = { name: 'user' };
@@ -50,7 +38,14 @@ describe('User Reducer', () => {
 });
 
 describe('Token Reducer', () => {
-  testPassThruAndInit(token, null);
+  it('initial value', () => {
+    assert.equal(token(undefined, { type: 'NO_ACTION' }), null);
+  });
+
+  it('pass-thru', () => {
+    const state = 'token';
+    assert.strictEqual(token(state, { type: 'NO_ACTION' }), state);
+  });
 
   it('GOT_TOKEN adds token', () => {
     const tokenState = {};
@@ -67,7 +62,14 @@ describe('Token Reducer', () => {
 });
 
 describe('Error Reducer', () => {
-  testPassThruAndInit(error, null);
+  it('initial value', () => {
+    assert.equal(error(undefined, { type: 'NO_ACTION' }), null);
+  });
+
+  it('pass-thru', () => {
+    const state = 'error';
+    assert.strictEqual(error(state, { type: 'NO_ACTION' }), state);
+  });
 
   it('AUTH_FAILED adds error', () => {
     const errorState = {};
