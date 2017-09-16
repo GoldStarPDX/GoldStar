@@ -1,16 +1,16 @@
 import { request } from './request';
 
 export default {
-  verify() {
-    return request.get('/auth/verify');
+  verify(status) {
+    return request.get(`/auth${status}/verify`);
   },
 
-  signin(credentials) {
-    return request.post('/auth/signin', credentials);
+  signin(credentials, status) {
+    return request.post(`/auth${status}/signin`, credentials);
   },
 
-  signup(user) {
-    return request.post('/auth/signup', user);
+  signup(user, status) {
+    return request.post(`/auth${status}/signup`, user);
   },
 
   getUser() {

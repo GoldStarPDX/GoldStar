@@ -20,9 +20,9 @@ export function checkForToken() {
   };
 }
 
-export function signin(credentials){
+export function signin(credentials, status){
   return dispatch => {
-    authApi.signin(credentials)
+    authApi.signin(credentials, status)
       .then(({ token }) => {
         dispatch({ type: actions.GOT_TOKEN, payload: token });
       })
@@ -36,9 +36,9 @@ export function signin(credentials){
   };
 }
 
-export function signup(user){
+export function signup(user, status){
   return dispatch => {
-    authApi.signup(user)
+    authApi.signup(user, status)
       .then(({ token }) => {
         dispatch({ type: actions.GOT_TOKEN, payload: token });
       })

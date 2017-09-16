@@ -6,8 +6,8 @@ import Credentials from './Credentials';
 
 function Auth({ user, signin, signup, error, location, status }) {
   const redirect = location.state ? location.state.from : '/';
-
-  if(user) return <Redirect to={redirect}/>;
+  console.log(`/auth${status}/signin`);
+  if (user) return <Redirect to={redirect} />;
 
   return (
     <div>
@@ -15,15 +15,15 @@ function Auth({ user, signin, signup, error, location, status }) {
         <Route path={`/auth${status}/signin`} component={() => (
           <div>
             <p>Not yet registered?<Link to={`/auth${status}/signup`}>Sign Up</Link></p>
-            <Credentials submit={signin}/>
+            <Credentials submit={(credentials) => signin(credentials, status)} />
           </div>
-        )}/>
-        <Route path={`/auth${status}/signup`} render={() =>(
+        )} />
+        <Route path={`/auth${status}/signup`} render={() => (
           <div>
             <p>Already have an account?<Link to={`/auth${status}/signin`}>Sign In</Link></p>
-            <Credentials submit={signup} allowName={true}/>
+            <Credentials submit={(credentials) => signup(credentials, status)} allowName={true} />
           </div>
-        )}/>
+        )} />
       </Switch>
       {error && <div>{error}</div>}
     </div>
@@ -35,8 +35,5 @@ export default withRouter(connect(
     error: auth.error,
     user: auth.user
   }),
-  dispatch => ({
-    signup(user){ dispatch(signup(user)); },
-    signin(credentials){ dispatch(signin(credentials)); }
-  })
+  { signup, signin }
 )(Auth));
