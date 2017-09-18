@@ -8,6 +8,8 @@ export default () => (
     <Route exact path="/" render={() => <Home />} />;
     <Route path="/authTeacher" render={() => <Auth status="Teacher" />} />;
     <Route path="/authStudent" render={() => <Auth status="Student" />} />;
+    <Route path="/Teacher" render={() => <div>Hello Teacher</div>}/>
+    <Route path="/Student" render={() => <div>Hello Student</div>}/>
     <Redirect to="/" />
   </Switch>
 );

@@ -2,15 +2,15 @@ import * as actions from './constants';
 import authApi from '../services/authApi';
 import { getStoredToken } from '../services/request';
 
-export function checkForToken() {
+export function checkForToken(status) {
   return dispatch => {
     const token = getStoredToken();
     if (!token) return;
 
     dispatch({ type: actions.GOT_TOKEN, payload: token });
 
-    return authApi.verify()
-      .then(() => authApi.getUser())
+    return authApi.verify(status)
+      .then(() => authApi.getUser(status))
       .then(user => {
         dispatch({ type: actions.FETCHED_USER, payload: user });
       })
@@ -20,13 +20,13 @@ export function checkForToken() {
   };
 }
 
-export function signin(credentials, status){
+export function signin(credentials, status) {
   return dispatch => {
     authApi.signin(credentials, status)
       .then(({ token }) => {
         dispatch({ type: actions.GOT_TOKEN, payload: token });
       })
-      .then(() => authApi.getUser())
+      .then(() => authApi.getUser(status))
       .then(user => {
         dispatch({ type: actions.FETCHED_USER, payload: user });
       })
@@ -36,13 +36,13 @@ export function signin(credentials, status){
   };
 }
 
-export function signup(user, status){
+export function signup(user, status) {
   return dispatch => {
     authApi.signup(user, status)
       .then(({ token }) => {
         dispatch({ type: actions.GOT_TOKEN, payload: token });
       })
-      .then(() => authApi.getUser())
+      .then(() => authApi.getUser(status))
       .then(user => {
         dispatch({ type: actions.FETCHED_USER, payload: user });
       })
@@ -52,6 +52,6 @@ export function signup(user, status){
   };
 }
 
-export function signout(){
+export function signout() {
   return { type: actions.LOGOUT };
 }
