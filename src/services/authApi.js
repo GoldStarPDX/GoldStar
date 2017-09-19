@@ -17,4 +17,5 @@ export default {
     // TODO: maybe change this shit to teach and student
     return request.get(`/${status}`);
   }
+
 };
