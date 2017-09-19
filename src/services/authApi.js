@@ -13,8 +13,8 @@ export default {
     return request.post(`/auth${status}/signup`, user);
   },
 
-  getUser() {
+  getUser(status) {
     // TODO: maybe change this shit to teach and student
-    return request.get('/me');
+    return request.get(`/${status}`);
   }
 };
