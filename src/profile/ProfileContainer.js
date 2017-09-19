@@ -6,9 +6,8 @@ import Profile from './Profile';
 
 function mapStateToProps(state) {
   return {
-    profile: state.profile,
-    error: state.profileError,
-    loading: state.profileLoading
+    profile: state.auth.user,
+    error: state.auth.error
   };
 }
 

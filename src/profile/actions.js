@@ -7,6 +7,7 @@ export function getProfile(status) {
 
     api.get(status)
       .then(profile => {
+        console.log('profile', profile);
         dispatch({ type: actions.FETCHED_PROFILE, payload: profile });
       })
       .catch(error => {
