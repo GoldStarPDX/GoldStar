@@ -1,25 +1,49 @@
 import React, { Component } from 'react';
 import Header from '../app/Header';
-import { Link, Switch, Route } from 'react-router-dom';
+import { Switch, Route } from 'react-router-dom';
 import ProfileContainer from '../profile/ProfileContainer';
-import { connect } from 'react-redux';
 import { Search } from './Search';
 import searchApi from '../services/searchApi';
 import Results from './Results';
 
-export default function Teacher({ history, status }) {
-  return (
-    <div>
-      <Header />
-      <Search onSearch={(search) => history.push(`/Teacher/search/${search}`)} />
-      <Switch>
-        <Route exact path="/Teacher" render={() => <ProfileContainer status={status} />} />
-        <Route path="/Teacher/search/:search" render={({ match }) => <Results search={match.params.search} />} />
-        {/* <Link to="/Teacher/search"></Link> */}
-      </Switch>
+export default class Teacher extends Component {
 
-    </div>
-  );
+  constructor(props) {
+    super(props);
+    this.state = {
+      searchResults: []
+    };
+    this.handleSearchResults.bind(this);
+  }
+
+  handleSearchResults(search) {
+    searchApi.getSearch({ search })
+      .then(results => {
+        console.log('resultsess', results);
+        this.setState({
+          searchResults: results
+        });
+        console.log('this.state.searchResults', this.state.searchResults);
+      });
+  }
+
+  render() {
+    const { history, status } = this.props;
+    return (
+      <div>
+        <Header />
+        <Search onSearch={(search) => {
+          this.handleSearchResults(search);
+          history.push(`/Teacher/search/${search}`);
+        }} />
+        <Switch>
+          <Route exact path="/Teacher" render={() => <ProfileContainer status={status} />} />
+          <Route path="/Teacher/search/:search" render={({ match }) => <Results search={match.params.search} searchResults={this.state.searchResults} />} />
+        </Switch>
+
+      </div>
+    );
+  }
 }
 
 
