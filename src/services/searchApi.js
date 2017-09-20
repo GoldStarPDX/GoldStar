@@ -1,7 +1,8 @@
 import { request } from './request';
 
 export default { 
-  get(){
-    return request.get('/api/search');
+  getSearch(query){
+    console.log('IM A QUERY', query.search);
+    return request.get(`/search/${query.search}`);
   }
 };
