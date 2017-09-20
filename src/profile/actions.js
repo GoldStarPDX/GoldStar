@@ -7,7 +7,6 @@ export function getProfile(status) {
 
     api.get(status)
       .then(profile => {
-        console.log('profile', profile);
         dispatch({ type: actions.FETCHED_PROFILE, payload: profile });
       })
       .catch(error => {
@@ -26,20 +25,6 @@ export function updateImage(status, data) {
       })
       .catch(error => {
         dispatch({ type: actions.UPDATED_IMAGE_ERROR, payload: error });
-      });
-  };
-}
-
-export function updateText(status, data) {
-  return dispatch => {
-    dispatch({ type: actions.UPDATING_TEXT });
-  
-    api.update(status, data)
-      .then(updated => {
-        dispatch({ type: actions.UPDATED_TEXT, payload: updated });
-      })
-      .catch(error => {
-        dispatch({ type: actions.UPDATED_TEXT_ERROR, payload: error });
       });
   };
 }
