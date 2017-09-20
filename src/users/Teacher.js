@@ -19,11 +19,9 @@ export default class Teacher extends Component {
   handleSearchResults(search) {
     searchApi.getSearch({ search })
       .then(results => {
-        console.log('resultsess', results);
         this.setState({
           searchResults: results
         });
-        console.log('this.state.searchResults', this.state.searchResults);
       });
   }
 
