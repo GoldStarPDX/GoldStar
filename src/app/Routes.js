@@ -10,8 +10,8 @@ export default () => (
     <Route exact path="/" render={() => <Home />} />;
     <Route path="/authTeacher" render={() => <Auth status="Teacher" />} />;
     <Route path="/authStudent" render={() => <Auth status="Student" />} />;
-    <Route path="/Teacher" render={() => <Teacher />}/>
-    {/* <Route path="/Student" render={() => <Student />}/> */}
+    <Route path="/Teacher" render={() => <Teacher status="Teacher" />}/>
+    {/* <Route path="/Student" render={() => <Student status="Student" />}/> */}
     <Redirect to="/" />
   </Switch>
 );
