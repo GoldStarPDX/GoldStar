@@ -5,21 +5,21 @@ import Profile from './Profile';
 
 
 function mapStateToProps(state) {
-    return {
-        profileName: state.auth.user.name,
-        profileImg: state.auth.user.photo,
-        error: state.auth.error
-    };
+  return {
+    profileName: state.auth.user.name,
+    profileImg: state.auth.user.photo,
+    error: state.auth.error
+  };
 }
 
 function mapDispatchToProps(dispatch) {
-    return bindActionCreators(actions, dispatch);
+  return bindActionCreators(actions, dispatch);
 }
 
 
 const ProfileContainer = connect(
-    mapStateToProps,
-    mapDispatchToProps
+  mapStateToProps,
+  mapDispatchToProps
 )(Profile);
 
 export default ProfileContainer;

@@ -2,18 +2,26 @@ import store from '../store/index';
 import superagent from 'superagent';
 
 let token = '';
+let status = '';
 
 const storage = localStorage;
 
 store.subscribe(() => {
-  const { token: newToken } = store.getState().auth;
+  const { token: newToken, user } = store.getState().auth;
+
   if (newToken !== token) {
     token = newToken;
     token ? storage.token = token : storage.clear('token');
+    
   }
+  if (user && user.status !== status ) {
+    status = user.status;
+    status ? storage.status = status : storage.clear('status');
+
+  } 
 });
 
-export const getStoredToken = () => storage.token;
+export const getStoredToken = () => ({ token: storage.token, status: storage.status });
 
 export const API_URL = '/api';
 
