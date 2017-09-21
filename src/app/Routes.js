@@ -5,6 +5,7 @@ import Auth from '../auth/Auth';
 import Home from '../home/Home';
 import Teacher from '../users/Teacher';
 import Student from '../users/Student';
+import Set from '../set/Set';
 
 import PrivateRoute from './PrivateRoutes';
 
@@ -13,6 +14,7 @@ export const Routes = ({ user }) => {
     <Switch>
       <PrivateRoute path="/Teacher" render={({history}) => <Teacher status="Teacher" history={history} />} />
       <PrivateRoute path="/Student" render={() => <Student status="Student" />}/> 
+      <PrivateRoute path="/flashcardSets/:id" render={({ match, history }) => <Set id={match.params.id} history={history}/>} /> />
       {/* <PrivateRoute path="/Teacher/search" render={() => <Search />} */}
       <Redirect to={`/${user.status}`} />
     </Switch>

@@ -7,7 +7,7 @@ export function getSet(id) {
     dispatch({type: actions.FETCHING_SET});
     api.getSet(id)
       .then(set => {
-        dispatch({type: actions.FETCHED_SET, payload: set});
+        dispatch({type: actions.FETCHED_SET, payload: set.cards});
       })
       .catch(error => {
         dispatch({type: actions.FETCHED_SET_ERROR, payload: error});
@@ -15,15 +15,15 @@ export function getSet(id) {
   };
 }
 
-export function addCards(setId) {
+export function addCards(setId, data) {
   return dispatch => {
-    dispatch({type: actions.ADDING_CARDTOSET});
-    api.addCards(setId)
+    dispatch({type: actions.ADDING_CARDSTOSET});
+    api.addCards(setId,data)
       .then(set => {
-        dispatch({type: actions.ADDED_CARDTOSET, payload: set});
+        dispatch({type: actions.ADDED_CARDSTOSET, payload: set});
       })
       .catch(error => {
-        dispatch({type: actions.ADDED_CARDTOSET_ERROR, payload: error});
+        dispatch({type: actions.ADDED_CARDSTOSET_ERROR, payload: error});
       });
   }; 
 }
