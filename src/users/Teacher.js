@@ -2,9 +2,10 @@ import React, { Component } from 'react';
 import Header from '../app/Header';
 import { Switch, Route } from 'react-router-dom';
 import ProfileContainer from '../profile/ProfileContainer';
-import { Search } from './Search';
+import { Search } from '../search/Search';
 import searchApi from '../services/searchApi';
-import Results from './Results';
+import Results from '../search/Results';
+import Set from '../search/Set';
 
 export default class Teacher extends Component {
 
@@ -31,12 +32,12 @@ export default class Teacher extends Component {
       <div>
         <Header />
         <Search onSearch={(search) => {
-          this.handleSearchResults(search);
           history.push(`/Teacher/search/${search}`);
         }} />
         <Switch>
           <Route exact path="/Teacher" render={() => <ProfileContainer status={status} />} />
-          <Route path="/Teacher/search/:search" render={({ match }) => <Results search={match.params.search} searchResults={this.state.searchResults} />} />
+          <Route path="/Teacher/search/:search" render={({ match }) => <Results search={match.params.search} />} />
+          <Route path="/Teacher/set/:id" render={({ match }) => <Set id={match.params.id} /> } /> 
         </Switch>
 
       </div>

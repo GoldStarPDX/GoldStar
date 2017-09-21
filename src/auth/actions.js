@@ -2,9 +2,9 @@ import * as actions from './constants';
 import authApi from '../services/authApi';
 import { getStoredToken } from '../services/request';
 
-export function checkForToken(status) {
+export function checkForToken() {
   return dispatch => {
-    const token = getStoredToken();
+    const { token, status } = getStoredToken();
     if (!token) return;
 
     dispatch({ type: actions.GOT_TOKEN, payload: token });
