@@ -8,7 +8,6 @@ import Results from '../search/Results';
 import Set from '../search/Set';
 
 export default class Teacher extends Component {
-
   constructor(props) {
     super(props);
     this.state = {
@@ -37,7 +36,7 @@ export default class Teacher extends Component {
         <Switch>
           <Route exact path="/Teacher" render={() => <ProfileContainer status={status} />} />
           <Route path="/Teacher/search/:search" render={({ match }) => <Results search={match.params.search} />} />
-          <Route path="/Teacher/set/:id" render={({ match }) => <Set id={match.params.id} /> } /> 
+          <Route path="/Teacher/set/:id" render={({ match }) => <Set id={match.params.id} />} />
         </Switch>
 
       </div>

@@ -1,1 +1,2 @@
 export const GOT_SEARCH_RESULTS = 'GOT_SEARCH_RESULTS';
+export const GOT_SET_RESULTS = 'GOT_SET_RESULTS';

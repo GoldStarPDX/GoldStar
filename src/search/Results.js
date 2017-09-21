@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {getSearchResults }from './actions';
+import { getSearchResults }from './actions';
 import { Link } from 'react-router-dom';
-import api from '../services/flashcardSetApi';
 
 
 export class Results extends Component {
