@@ -10,9 +10,9 @@ export default ({ submit, allowName = false }) => (
     }, {});
     submit(data);
   }}>
-    {allowName && <label>Name: <input name="name" /></label>}
-    <label>Email: <input name="email" type="email" /></label>
-    <label>Password: <input type="password" name="password" /></label>
-    <button>Login</button>
+    {allowName && <div><label for="name">Name:</label><input name="name" id="name" /></div>}
+    <div><label for="email">Email:</label><input name="email" type="email" id="email" /></div>
+    <div><label for="email">Password: </label><input type="password" name="password" id="email" /></div>
+    <div><button>Submit</button></div>
   </form>
 );

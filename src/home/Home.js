@@ -1,22 +1,36 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import Welcome from './Welcome';
+import Intro from './Intro';
 
 const GetStarted = () => (
-  <div>
-    <p>Click to get started as a</p>
-    <p>
-      <Link to="/authTeacher/signin">Teacher</Link>
-      {' or '} 
-      <Link to="/authStudent/signin">Student</Link>
-    </p>
+  <div id="getStarted">
+    <p className="home-small">Click to get started as a</p>
+    <Link to="/authTeacher/signin">
+      <div className="getStartedBtn">
+        <span className="home-large">Teacher</span>
+      </div>
+    </Link>
+    <span className="spacer"></span>
+    <Link to="/authStudent/signin">
+      <div className="getStartedBtn">
+        <span className="home-large">Student</span>
+      </div>
+    </Link>
   </div>
 );
 
 function Home() {
   return(
     <div>
-      <GetStarted />
+      <div id="homeWrapper">
+        <Welcome />
+        <GetStarted />
+      </div>
+      <div id="introWrapper">
+        <Intro />
+      </div>
     </div>
   );
 }
