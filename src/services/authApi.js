@@ -14,8 +14,11 @@ export default {
   },
 
   getUser(status) {
-    // TODO: maybe change this shit to teach and student
     return request.get(`/${status}`);
+  },
+
+  update(status, data) {
+    return request.put(`/${status}`, data);
   }
 
 };

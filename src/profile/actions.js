@@ -1,10 +1,12 @@
 import * as actions from './constants';
+import api from '../services/authApi';
+
 
 export function getProfile(status) {
   return dispatch => {
     dispatch({ type: actions.FETCHING_PROFILE });
 
-    api.get(status)
+    api.getUser(status)
       .then(profile => {
         dispatch({ type: actions.FETCHED_PROFILE, payload: profile });
       })
