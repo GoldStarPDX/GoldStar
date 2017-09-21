@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getSetResults } from './actions';
+// import AddCards from '../set/AddCards';
+import { addCards } from '../set/actions';
 
 
 export class ReturnedSet extends Component {
@@ -13,19 +15,27 @@ export class ReturnedSet extends Component {
   }
 
   render() {
-
+    const { id, addCards } = this.props;
     return (
-      <form>
+      <form ref={(form) => this.form = form} onSubmit={(e) => e.preventDefault()}>
         {this.props.returnedSet.map(card => {
           return <div key={card.id}>
-            <input type="checkbox" id={card.term} name={card.term} value={card.term} /> 
-            <label for={card.term}>
+            <input type="checkbox" id={card.term} name={card.term} value={card.id} /> 
+            <label htmlFor={card.term}>
               <h3>{card.term}</h3>
               <p>{card.definition}</p>
             </label>
           </div>;
         })}
-        {/* <button type="submit" onClick={}>Submit</button> */}
+        {this.props.sets.map(set => {
+          return <button onClick={() => {
+            let checked = [...this.form.elements].filter(element => element.checked).map(element => element.value);
+            console.log('CHECKED IS',checked);
+            addCards(set._id, checked);
+          }}>
+            Add to {set.name}</button>;
+        }
+        )}
       </form>
     );
   }
@@ -33,7 +43,7 @@ export class ReturnedSet extends Component {
 
 export default connect(
   state => {
-    return { returnedSet: state.returnedSet };
+    return { returnedSet: state.returnedSet, set: state.set, sets: state.sets };
   },
-  { getSetResults }
+  { getSetResults, addCards }
 )(ReturnedSet);

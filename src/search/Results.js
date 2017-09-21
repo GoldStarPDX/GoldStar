@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import { getSearchResults }from './actions';
 import { Link } from 'react-router-dom';
 
-
 export class Results extends Component {
   componentWillMount(){
     this.getResults(this.props.search);

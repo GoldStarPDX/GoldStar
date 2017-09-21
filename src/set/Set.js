@@ -30,7 +30,9 @@ export class Set extends Component {
         }} />
         <h1>Hello There</h1>
         {setMessage}
+        
         {userSet.map(card => {
+          console.log(card);
           return <div key={card._id}>
             <p> {card.term} </p>
             <p> {card.definition} </p>

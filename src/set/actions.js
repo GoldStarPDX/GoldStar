@@ -7,7 +7,6 @@ export function getSet(id) {
     dispatch({type: actions.FETCHING_SET});
     api.getSet(id)
       .then(set => {
-        console.log('***SET IS', set);
         dispatch({type: actions.FETCHED_SET, payload: set.cards});
       })
       .catch(error => {
@@ -16,10 +15,10 @@ export function getSet(id) {
   };
 }
 
-export function addCards(setId) {
+export function addCards(setId, data) {
   return dispatch => {
     dispatch({type: actions.ADDING_CARDSTOSET});
-    api.addCards(setId)
+    api.addCards(setId,data)
       .then(set => {
         dispatch({type: actions.ADDED_CARDSTOSET, payload: set});
       })
