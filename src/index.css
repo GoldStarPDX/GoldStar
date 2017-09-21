@@ -105,3 +105,17 @@ header { background: #aaa; }
   text-align: right;
   font-size: .8rem;
 }
+
+#flashcardSearch {
+  text-align: center;
+  padding: 2rem 0;
+}
+#flashcardSearch h2 {
+  font-size: 1.6rem;
+  margin-bottom: 12px;
+}
+#flashcardSearch input {
+  width: 100%;
+  max-width: 400px;
+  padding: 6px;
+}
