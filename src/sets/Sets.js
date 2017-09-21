@@ -14,7 +14,7 @@ export class Sets extends Component {
 
   render() {
     const { userSets } = this.props;
-    const { addSet } = this.props;
+    const { addSet, deleteSet } = this.props;
     const setsLength = userSets.length;
     let setMessage = '';
     if (setsLength === 0) {
@@ -28,9 +28,10 @@ export class Sets extends Component {
           return (
 
             <div>
-              <div key={userSet.id}>
+              <div key={userSet._id}>
                 <h3>{userSet.name}</h3>
                 <p>Number of Cards: {userSet.cards.length}</p>
+                <button onClick={() => deleteSet(userSet._id)}>X</button>
               </div>
             </div>
           );
