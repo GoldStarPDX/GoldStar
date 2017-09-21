@@ -5,8 +5,8 @@ export default {
   getAllSets() {
     return request.get('/flashcardSet');
   },
-  addSet() {
-    return request.post('/flashcardSet');
+  addSet(set) {
+    return request.post('/flashcardSet', set);
   },
   updateSet(id) {
     return request.put(`/flashcardSet/${id}`);

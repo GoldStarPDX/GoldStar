@@ -15,10 +15,10 @@ export function getAllSets() {
   };
 }
 
-export function addSet() {
+export function addSet(set) {
   return dispatch => {
     dispatch({type: actions.ADDING_SET});
-    api.addSet()
+    api.addSet(set)
       .then(set => {
         dispatch({type: actions.ADDED_SET, payload: set});
       })
