@@ -114,8 +114,32 @@ header { background: #aaa; }
   font-size: 1.6rem;
   margin-bottom: 12px;
 }
-#flashcardSearch input {
+
+#flashcardSearch form { 
+  display: table; 
   width: 100%;
-  max-width: 400px;
-  padding: 6px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+#flashcardSearch button, #flashcardSearch input {
+  display: table-cell;
+  vertical-align: bottom;
+}
+#flashcardSearch input {
+  width: calc(100% - 70px);
+  padding: 9px 6px;
+}
+#flashcardSearch button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: .9rem;
+  width: 50px;
+}
+.clip {
+  clip: rect(1px, 1px, 1px, 1px);
+  position: absolute !important;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
 }

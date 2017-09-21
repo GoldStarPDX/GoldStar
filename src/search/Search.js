@@ -10,7 +10,7 @@ export function Search({ onSearch }) {
         onSearch(search.value);   
       }}>
         <input name="search" placeholder="Search your topic here." />
-        <button type="submit"> Search </button>
+        <button type="submit"><i className="fa fa-search fa-2x"></i><span className="clip">Search</span></button>
       </form>
     </div>
   );
