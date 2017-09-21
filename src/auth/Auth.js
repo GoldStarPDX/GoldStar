@@ -3,6 +3,8 @@ import { Switch, Route, Link, Redirect, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { signin, signup } from './actions';
 import Credentials from './Credentials';
+import Welcome from '../home/Welcome';
+import Intro from '../home/Intro';
 
 function Auth({ user, signin, signup, error, location, status }) {
   const redirect = location.state ? location.state.from : `/${status}`;
@@ -11,21 +13,27 @@ function Auth({ user, signin, signup, error, location, status }) {
 
   return (
     <div>
-      <Switch>
-        <Route path={`/auth${status}/signin`} component={() => (
-          <div>
-            <p>Not yet registered?<Link to={`/auth${status}/signup`}>Sign Up</Link></p>
-            <Credentials submit={(credentials) => signin(credentials, status)} />
-          </div>
-        )} />
-        <Route path={`/auth${status}/signup`} render={() => (
-          <div>
-            <p>Already have an account?<Link to={`/auth${status}/signin`}>Sign In</Link></p>
-            <Credentials submit={(credentials) => signup(credentials, status)} allowName={true} />
-          </div>
-        )} />
-      </Switch>
-      {error && <div>{error}</div>}
+      <div id="homeWrapper">
+        <Welcome />
+        <Switch>
+          <Route path={`/auth${status}/signin`} component={() => (
+            <div>
+              <p>Not yet registered?<Link to={`/auth${status}/signup`}>Sign Up</Link></p>
+              <Credentials submit={(credentials) => signin(credentials, status)} />
+            </div>
+          )} />
+          <Route path={`/auth${status}/signup`} render={() => (
+            <div>
+              <p>Already have an account?<Link to={`/auth${status}/signin`}>Sign In</Link></p>
+              <Credentials submit={(credentials) => signup(credentials, status)} allowName={true} />
+            </div>
+          )} />
+        </Switch>
+        {error && <div>{error}</div>}
+      </div>
+      <div id="introWrapper">
+        <Intro />
+      </div>
     </div>
   );
 }
