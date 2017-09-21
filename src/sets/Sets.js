@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getAllSets, addSet, updateSet, deleteSet } from './actions';
 import AddSet from './AddSet';
@@ -29,7 +30,7 @@ export class Sets extends Component {
 
             <div>
               <div key={userSet._id}>
-                <h3>{userSet.name}</h3>
+                <h3><Link to={`/flashcardSets/${userSet._id}`}>{userSet.name}</Link></h3>
                 <p>Number of Cards: {userSet.cards.length}</p>
                 <button onClick={() => deleteSet(userSet._id)}>X</button>
               </div>

@@ -9,6 +9,7 @@ export class Set extends Component {
   }
 
   getUserSet(id) {
+    console.log('****ID', id);
     this.props.getSet(id);
   }
 
@@ -16,6 +17,7 @@ export class Set extends Component {
     const { userSet } = this.props;
     return (
       <div>
+        <h1>Hello There</h1>
         {userSet.map(card => {
           return <div key={card._id}>
             <p> {card.term} </p>
