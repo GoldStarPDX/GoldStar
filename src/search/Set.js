@@ -15,11 +15,17 @@ export class Set extends Component {
   render() {
 
     return (
-      <div>
+      <form>
         {this.props.set.map(card => {
-          return <li key={card.id}>{card.term}{card.definition}</li>
+          return <div key={card.id}>
+            <input type="checkbox" id={card.term} name={card.term} value={card.term} /> 
+            <label for={card.term}>
+              <h3>{card.term}</h3>
+              <p>{card.definition}</p>
+            </label>
+          </div>;
         })}
-      </div>
+      </form>
     );
   }
 }

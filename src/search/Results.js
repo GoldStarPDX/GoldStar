@@ -23,11 +23,11 @@ export class Results extends Component {
       <div>
         <Link to="/Teacher">Back to Profile</Link>
         <h2>Search results for {this.props.search}</h2>
-        <p>{ this.props.results.map(results => {
+        <ul>{ this.props.results.map(results => {
           return <li key={results.id}>
             <Link to={`/Teacher/set/${results.id}`}>{results.title}</Link>
           </li>;
-        })}</p>
+        })}</ul>
       </div>
     );
   }}
