@@ -28,10 +28,10 @@ export function addCards(setId) {
   }; 
 }
 
-export function deleteCards(setId) {
+export function deleteCards(setId, cardId) {
   return dispatch => {
     dispatch({type: actions.REMOVING_CARDSFROMSET});
-    api.deleteCards(setId)
+    api.deleteCards(setId, cardId)
       .then(() => {
         dispatch({type: actions.REMOVED_CARDSFROMSET, payload: setId});
       })

@@ -8,7 +8,7 @@ export default {
   addCards(setId) {
     return request.post(`/flashcardSet/${setId}/cards`);
   },
-  deleteCards(setId) {
-    return request.delete(`/flashcardSet/${setId}/cards`);
+  deleteCards(setId, cardId) {
+    return request.delete(`/flashcardSet/${setId}/cards/${cardId}`);
   }
 };
