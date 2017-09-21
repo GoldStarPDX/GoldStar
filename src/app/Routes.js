@@ -4,7 +4,7 @@ import { Route, Switch, Redirect, withRouter } from 'react-router-dom';
 import Auth from '../auth/Auth';
 import Home from '../home/Home';
 import Teacher from '../users/Teacher';
-// import Student from '../users/Student';
+import Student from '../users/Student';
 
 import PrivateRoute from './PrivateRoutes';
 
@@ -12,7 +12,7 @@ export const Routes = ({ user }) => {
   if (user) return (
     <Switch>
       <PrivateRoute path="/Teacher" render={({history}) => <Teacher status="Teacher" history={history} />} />
-      {/* <PrivateRoute path="/Student" render={() => <Student status="Student" />}/> */}
+      <PrivateRoute path="/Student" render={() => <Student status="Student" />}/> 
       {/* <PrivateRoute path="/Teacher/search" render={() => <Search />} */}
       <Redirect to={`/${user.status}`} />
     </Switch>
