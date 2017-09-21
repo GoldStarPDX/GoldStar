@@ -10,8 +10,8 @@ body {
 }
 
 #homeWrapper {
-  background: #bbb;
-  border-top: 1px solid #bbb;
+  background: #aaa;
+  border-top: 1px solid #aaa;
   padding: 3rem 0; 
   text-align: center;
 }
@@ -21,7 +21,16 @@ body {
   font-size: 2rem;
   font-weight: bold;
 }
-#logo {color: #F9D47A;}
+#logo {color: #FCBF27;}
+.text-stroke {
+  -webkit-text-stroke: 1px #444;
+  text-shadow:
+    3px 3px 0 #444,
+   -1px -1px 0 #444,  
+    1px -1px 0 #444,
+   -1px  1px 0 #444,
+    1px  1px 0 #444;
+}
 .getStartedBtn {
   display: inline-block;
   background: #444;
@@ -77,3 +86,22 @@ body {
 }
 #intro h2, #intro p {margin-bottom: 1rem;}
 #intro p {line-height: 1.4;}
+
+header { background: #aaa; }
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+#main-logo {
+  float: left;
+  width: 60px;
+  text-align: center;
+  padding: 12px;
+}
+#signout {
+  float: right;
+  padding: 30px 12px 0 0;
+  text-align: right;
+  font-size: .8rem;
+}
