@@ -1,19 +1,17 @@
+/* SETS API */
 import { request } from './request';
 
 export default {
   getAllSets() {
     return request.get('/flashcardSet');
   },
-  getTeacherSet(id) {
-    return request.get(`/flashcardSet/${id}`);
-  },
-  addTeacherSet() {
+  addSet() {
     return request.post('/flashcardSet');
   },
-  updateTeacherSet(id) {
+  updateSet(id) {
     return request.put(`/flashcardSet/${id}`);
   },
-  deleteTeacherSet(id) {
+  deleteSet(id) {
     return request.delete(`/flashcardSet/${id}`);
   }
 };
