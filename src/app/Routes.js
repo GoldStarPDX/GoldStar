@@ -14,7 +14,7 @@ export const Routes = ({ user }) => {
     <Switch>
       <PrivateRoute path="/Teacher" render={({history}) => <Teacher status="Teacher" history={history} />} />
       <PrivateRoute path="/Student" render={() => <Student status="Student" />}/> 
-      <PrivateRoute path="/flashcardSets/:id" render={({ match }) => <Set id={match.params.id}/>} /> />
+      <PrivateRoute path="/flashcardSets/:id" render={({ match, history }) => <Set id={match.params.id} history={history}/>} /> />
       {/* <PrivateRoute path="/Teacher/search" render={() => <Search />} */}
       <Redirect to={`/${user.status}`} />
     </Switch>
