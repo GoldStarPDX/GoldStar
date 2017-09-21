@@ -15,10 +15,10 @@ export function getSet(id) {
   };
 }
 
-export function addCard() {
+export function addCards(setId) {
   return dispatch => {
     dispatch({type: actions.ADDING_CARDTOSET});
-    api.addCard()
+    api.addCards(setId)
       .then(set => {
         dispatch({type: actions.ADDED_CARDTOSET, payload: set});
       })
@@ -28,12 +28,12 @@ export function addCard() {
   }; 
 }
 
-export function deleteCard(id) {
+export function deleteCards(setId) {
   return dispatch => {
     dispatch({type: actions.REMOVING_CARDSFROMSET});
-    api.deleteCard(id)
+    api.deleteCards(setId)
       .then(() => {
-        dispatch({type: actions.REMOVED_CARDSFROMSET, payload: id});
+        dispatch({type: actions.REMOVED_CARDSFROMSET, payload: setId});
       })
       .catch(error => {
         dispatch({type: actions.REMOVED_CARDSFROMSET_ERROR, payload: error});

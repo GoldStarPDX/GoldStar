@@ -5,10 +5,10 @@ export default {
   getSet(id) {
     return request.get(`/flashcardSet/${id}`);
   },
-  addCard() {
-    return request.post('/flashcardSet');
+  addCards(setId) {
+    return request.post(`/flashcardSet/${setId}/cards`);
   },
-  deleteCard(id) {
-    return request.delete(`/flashcardSet/${id}`);
+  deleteCards(setId) {
+    return request.delete(`/flashcardSet/${setId}/cards`);
   }
 };
