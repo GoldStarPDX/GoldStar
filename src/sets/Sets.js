@@ -14,6 +14,7 @@ export class Sets extends Component {
 
   render() {
     const { userSets } = this.props;
+    const { addSet } = this.props;
     const setsLength = userSets.length;
     let setMessage = '';
     if (setsLength === 0) {
@@ -24,12 +25,17 @@ export class Sets extends Component {
         <h2>Your Flashcard Sets</h2>
         {setMessage}
         {userSets.map(userSet => {
-          return <div key={userSet.id}>
-            <h3>{userSet.name}</h3>
-            <p>Number of Cards: {userSet.cards.length}</p>
-          </div>;
+          return (
+
+            <div>
+              <div key={userSet.id}>
+                <h3>{userSet.name}</h3>
+                <p>Number of Cards: {userSet.cards.length}</p>
+              </div>
+            </div>
+          );
         })}
-        <AddSet onAdd={({set}) => addSet(set)}/>
+        <AddSet onAdd={addSet} />
       </div>
     );
   }
