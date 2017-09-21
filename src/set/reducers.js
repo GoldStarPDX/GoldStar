@@ -20,11 +20,11 @@ export function setError(state = null, { type, payload }) {
   switch (type) {
     case actions.FETCHED_SET_ERROR:
     case actions.ADDED_CARDSTOSET_ERROR:
-    case actions.REMOVED_CARDSTOSET_ERROR:
+    case actions.REMOVED_CARDSFROMSET_ERROR:
       return payload;
     case actions.FETCHING_SET:
     case actions.ADDING_CARDSTOSET:
-    case actions.REMOVING_CARDSTOSET:
+    case actions.REMOVING_CARDSFROMSET:
       return null;
     default:
       return state;
