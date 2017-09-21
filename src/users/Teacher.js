@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import Header from '../app/Header';
 import { Switch, Route } from 'react-router-dom';
 import ProfileContainer from '../profile/ProfileContainer';
-// import TeacherSet from '../teacherset/TeacherSet';
+import Sets from '../sets/Sets';
 import { Search } from '../search/Search';
 import searchApi from '../services/searchApi';
 import Results from '../search/Results';
@@ -38,7 +38,7 @@ export default class Teacher extends Component {
           <Route exact path="/Teacher" render={() => (
             <div>
               <ProfileContainer status={status} />
-              {/* <TeacherSet /> */}
+              <Sets />
             </div>
           )} />
           <Route path="/Teacher/search/:search" render={({ match }) => <Results search={match.params.search} />} />

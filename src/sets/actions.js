@@ -17,39 +17,39 @@ export function getAllSets() {
 
 export function addSet() {
   return dispatch => {
-    dispatch({type: actions.ADDING_SETS});
+    dispatch({type: actions.ADDING_SET});
     api.addSet()
       .then(set => {
-        dispatch({type: actions.ADDED_SETS, payload: set});
+        dispatch({type: actions.ADDED_SET, payload: set});
       })
       .catch(error => {
-        dispatch({type: actions.ADDED_SETS_ERROR, payload: error});
+        dispatch({type: actions.ADDED_SET_ERROR, payload: error});
       });
   }; 
 }
 
 export function updateSet(id) {
   return dispatch => {
-    dispatch({type: actions.UPDATING_SETS});
+    dispatch({type: actions.UPDATING_SET});
     api.updateSet(id)
       .then(set => {
-        dispatch({type: actions.UPDATED_SETS, payload: set});
+        dispatch({type: actions.UPDATED_SET, payload: set});
       })
       .catch(error => {
-        dispatch({type: actions.UPDATED_SETS_ERROR, payload: error});
+        dispatch({type: actions.UPDATED_SET_ERROR, payload: error});
       });
   }; 
 }
 
 export function deleteSet(id) {
   return dispatch => {
-    dispatch({type: actions.REMOVING_SETS});
+    dispatch({type: actions.REMOVING_SET});
     api.deleteSet(id)
       .then(() => {
-        dispatch({type: actions.REMOVED_SETS, payload: id});
+        dispatch({type: actions.REMOVED_SET, payload: id});
       })
       .catch(error => {
-        dispatch({type: actions.REMOVED_SETS_ERROR, payload: error});
+        dispatch({type: actions.REMOVED_SET_ERROR, payload: error});
       });
   }; 
 }
