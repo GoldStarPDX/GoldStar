@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { getSetResults } from './actions';
 
 
-export class Set extends Component {
+export class ReturnedSet extends Component {
   componentWillMount(){
     this.getSet(this.props.id);
   }
@@ -16,7 +16,7 @@ export class Set extends Component {
 
     return (
       <form>
-        {this.props.set.map(card => {
+        {this.props.returnedSet.map(card => {
           return <div key={card.id}>
             <input type="checkbox" id={card.term} name={card.term} value={card.term} /> 
             <label for={card.term}>
@@ -32,7 +32,7 @@ export class Set extends Component {
 
 export default connect(
   state => {
-    return { set: state.set };
+    return { returnedSet: state.returnedSet };
   },
   { getSetResults }
-)(Set);
+)(ReturnedSet);

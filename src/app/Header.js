@@ -12,6 +12,7 @@ function Header({ signout }) {
 }
 
 export default connect(
+  null,
   dispatch => ({
     signout() { dispatch(signout());}
   })

@@ -1,10 +1,14 @@
 import { combineReducers } from 'redux';
 import auth from '../auth/reducers';
-import { results, set }  from '../search/reducer';
+import { results, returnedSet }  from '../search/reducers';
+import { set } from '../set/reducers';
+import { sets } from '../sets/reducers';
 
 export default combineReducers({
   auth,
   results,
-  set
+  returnedSet,
+  set,
+  sets
 });
 

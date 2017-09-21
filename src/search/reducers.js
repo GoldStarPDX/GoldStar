@@ -9,7 +9,7 @@ export function results(state = [], {type, payload}) {
   }
 }
 
-export function set(state = [], {type, payload}) {
+export function returnedSet(state = [], {type, payload}) {
   switch(type){
     case actions.GOT_SET_RESULTS:
       return payload;
