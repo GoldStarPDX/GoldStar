@@ -21,7 +21,7 @@ export default class Courses extends Component {
               <Link to={`/courses/${_id}`}>
                 {name}
               </Link>
-              <button className="action" onClick={() => removeCourse(_id)}> Remove </button>
+              <button className="action" onClick={() => removeCourses(_id)}> Remove </button>
             </li>
           ))}
         </ul>
