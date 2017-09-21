@@ -1,5 +1,4 @@
 import * as actions from './constants';
-import api from '../services/profileApi';
 
 export function getProfile(status) {
   return dispatch => {
