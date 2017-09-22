@@ -27,12 +27,11 @@ export class Set extends Component {
         <Search onSearch={(search) => {
           history.push(`/Teacher/search/${search}`);
         }} />
-        <h2>NAME IS {userSet.name}</h2>
+        <h2>SET NAME IS ? {userSet.name}</h2>
         {setMessage}
         
         {userSet.map(card => {
           return <div key={card._id}>
-            <p> {card._id} </p>
             <p> {card.term} </p>
             <p> {card.definition} </p>
             <button onClick={() => deleteCards(id, card._id)}>delete</button>
