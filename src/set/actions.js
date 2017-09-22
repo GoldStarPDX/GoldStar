@@ -33,7 +33,7 @@ export function deleteCards(setId, cardId) {
     dispatch({type: actions.REMOVING_CARDSFROMSET});
     api.deleteCards(setId, cardId)
       .then(() => {
-        dispatch({type: actions.REMOVED_CARDSFROMSET, payload: setId});
+        dispatch({type: actions.REMOVED_CARDSFROMSET, payload: cardId});
       })
       .catch(error => {
         dispatch({type: actions.REMOVED_CARDSFROMSET_ERROR, payload: error});
