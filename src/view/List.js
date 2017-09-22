@@ -8,8 +8,6 @@ export default class List extends Component {
 
   render() {
     const { cards, onDelete, setId } = this.props;
-    console.log('onDelete', onDelete);
-    console.log('CARDS', cards);
     return (
       <ul className="list">
         <p>MY LIST IS </p>

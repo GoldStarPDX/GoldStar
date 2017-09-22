@@ -6,14 +6,16 @@ export default class List extends Component {
   }
 
   render() {
+    const { cards, onDelete, setId } = this.props;
     return (
       <ul className="list">
-        {this.props.flashcards.map((flashcard, index) => {
-          return (
-            <li key={index}>
-              <a href={flashcard.url}>{flashcard.name}</a>
-              <p>{flashcard.definition}</p>
-            </li>);
+        <p>MY GALLERY</p>
+        {cards.map(card => {
+          return <div key={card._id}>
+            <div> {card.term} </div>
+            <div> {card.definition} </div>
+            <button onClick={() => onDelete(card._id)}>delete</button>
+          </div>;
         })}
       </ul>
     );
