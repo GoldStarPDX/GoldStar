@@ -9,6 +9,7 @@ import AddStudent from './AddStudent';
 export class Course extends Component {
 
   componentDidMount() {
+    console.log('this.props', this.props);
     this.getUserClass(this.props.id);
   }
 
@@ -18,6 +19,7 @@ export class Course extends Component {
 
   render() {
     const { history, course } = this.props;
+    console.log('COURSE IS', course);
     const { addStudent, removeStudent, addSet, removeSet} = this.props;
     const coursesLength = course.length;
     let courseMessage = '';
@@ -30,10 +32,25 @@ export class Course extends Component {
         <Search onSearch={(search) => {
           history.push(`/Teacher/search/${search}`);
         }} />
-        {courseMessage}
-        <AddStudent addStudent={addStudent} course={course._id} />
-        <AddSet onAdd={addSet} />
-        <p>Roster:{course.roster}</p>
+
+        
+        <div className="userContent">
+          <h2>{course.title}</h2>
+          {courseMessage}
+
+          <h3>Course Roster</h3>
+          <p>Roster:{course.roster}</p>
+          
+          <AddStudent onAdd={addStudent} />
+          
+          
+        </div>
+
+        <div className="userContent">
+          <h2>Course Flash Card Sets</h2>
+          <AddSet onAdd={addSet} />
+        </div>
+
       </div>
     );
   }
