@@ -17,31 +17,35 @@ export class ReturnedSet extends Component {
   render() {
     const { id, addCards } = this.props;
     return (
-      <form ref={(form) => this.form = form} onSubmit={(e) => e.preventDefault()}>
-        {this.props.returnedSet.map(card => {
-          return <div key={card.id} className="cardTerms">
-            <input type="checkbox" id={card.id} name={card.term} value={card.definition} /> 
-            <label htmlFor={card.term}>
-              <h3>{card.term}</h3>
-              <p>{card.definition}</p>
-            </label>
-          </div>;
-        })}
-        {this.props.sets.map(set => {
-          return <button onClick={() => {
-            let checked = [...this.form.elements].filter(element => element.checked).map(element => {
-              return {
-                term: element.name,
-                definition: element.value,
-                quizletId: element.id
-              };
-            });
-            addCards(set._id, checked);
-          }}>
-            <Link to={`/flashcardSets/${set._id}`}>Add to {set.name}</Link></button>;
-        }
-        )}
-      </form>
+      <div className="userContent">
+        <h2>Flash Cards</h2>
+        <form ref={(form) => this.form = form} onSubmit={(e) => e.preventDefault()}>
+          {this.props.returnedSet.map(card => {
+            return <div key={card.id} className="contentWrapper">
+              <input type="checkbox" className="returnedSetCheck" id={card.id} name={card.term} value={card.definition} /> 
+              <label className="contentContent returnedSetContent" htmlFor={card.term}>
+                <h3>{card.term}</h3>
+                <p>{card.definition}</p>
+              </label>
+            </div>;
+          })}
+          {this.props.sets.map(set => {
+            return <button className="addReturned" onClick={() => {
+              let checked = [...this.form.elements].filter(element => element.checked).map(element => {
+                return {
+                  term: element.name,
+                  definition: element.value,
+                  quizletId: element.id
+                };
+              });
+              addCards(set._id, checked);
+            }}>
+              <Link to={`/flashcardSets/${set._id}`}>Add selected to <strong>{set.name}</strong></Link>
+            </button>;
+          }
+          )}
+        </form>
+      </div>
     );
   }
 }
