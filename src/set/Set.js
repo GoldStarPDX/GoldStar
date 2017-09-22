@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { getSet, addCards, deleteCards } from './actions';
 import Header from '../app/Header';
 import { Search } from '../search/Search';
+import ViewSelector from '../view/ViewSelector';
 // import AddCard from './AddCard';
 
 export class Set extends Component {
@@ -29,14 +30,14 @@ export class Set extends Component {
         }} />
         <h2>SET NAME IS ? {userSet.name}</h2>
         {setMessage}
-        
-        {userSet.map(card => {
+        <ViewSelector cards={userSet} deleteCards={(cardId) => deleteCards(id,cardId)} setId={id} />
+        {/* {userSet.map(card => {
           return <div key={card._id}>
             <p> {card.term} </p>
             <p> {card.definition} </p>
             <button onClick={() => deleteCards(id, card._id)}>delete</button>
           </div>;
-        })}
+        })} */}
       </div>
     );
   }
