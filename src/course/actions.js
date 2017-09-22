@@ -48,8 +48,8 @@ export function addSet(courseId, data) {
     dispatch({ type: actions.ADDING_SET });
 
     api.addSet(courseId, data) 
-      .then(course => {
-        dispatch({ type: actions.ADDED_SET, payload: course });
+      .then(sets => {
+        dispatch({ type: actions.ADDED_SET, payload: sets });
       })
       .catch(error => {
         dispatch({ type: actions.ADDED_SET_ERROR, payload: error });

@@ -6,7 +6,10 @@ export function course(state = {}, { type, payload }) {
       return payload;
     case actions.ADDED_STUDENT:
     case actions.ADDED_SET:
-      return [...state, payload];
+      return {
+        ...state, 
+        flashcardSets: payload
+      };
     case actions.REMOVED_STUDENT:
     case actions.REMOVED_SET:
     {

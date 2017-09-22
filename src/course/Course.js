@@ -3,13 +3,12 @@ import { connect } from 'react-redux';
 import { getCourse, addStudent, removeStudent, addSet, removeSet } from './actions';
 import Header from '../app/Header';
 import { Search } from '../search/Search';
-import AddSet from '../sets/AddSet';
+import AddSetToCourse from './AddSetToCourse';
 import AddStudent from './AddStudent';
 
 export class Course extends Component {
 
   componentDidMount() {
-    console.log('this.props', this.props);
     this.getUserClass(this.props.id);
   }
 
@@ -19,8 +18,7 @@ export class Course extends Component {
 
   render() {
     const { history, course } = this.props;
-    console.log('COURSE IS', course);
-    const { addStudent, removeStudent, addSet, removeSet} = this.props;
+    const { addStudent, addSet } = this.props;
     const coursesLength = course.length;
     let courseMessage = '';
     if (coursesLength === 0) {
@@ -42,13 +40,11 @@ export class Course extends Component {
           <p>Roster:{course.roster}</p>
           
           <AddStudent onAdd={addStudent} />
-          
-          
         </div>
 
         <div className="userContent">
           <h2>Course Flash Card Sets</h2>
-          <AddSet onAdd={addSet} />
+          <AddSetToCourse onAdd={(set) => addSet(course._id, set)} />
         </div>
 
       </div>
