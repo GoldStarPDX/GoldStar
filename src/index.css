@@ -203,14 +203,20 @@ header {
 .contentWrapper {
   display: table;
   width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
+
+.searchResult {margin-bottom: 2rem;}
 
 .contentContent {
   display: table-cell;
   width: 100%;
   padding-left: 10px;
 }
+
+.returnedSetContent {vertical-align: top;}
+
+.addReturned a {color: #fff !important;}
 
 .userContent form input {
   padding: 5px 50px 5px 8px;
@@ -227,6 +233,13 @@ header {
   border: none;
   margin: 5px 0 0 5px;
   padding: 5px 8px;
+}
+
+.returnedSetCheck {
+  margin-right: 10px;
+  height: 20px;
+  width: 20px;
+  display: table-cell;
 }
 
 footer {
