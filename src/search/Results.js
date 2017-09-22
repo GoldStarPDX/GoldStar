@@ -26,7 +26,10 @@ export class Results extends Component {
           <h2>Search results for “{this.props.search}”</h2>
           { this.props.results.map(results => (
             <div key={results.id} className="contentWrapper searchResult">
-              <h3><Link to={`/Teacher/set/${results.id}`}>{results.title}</Link></h3>
+              <h3><Link to={{
+                pathname: `/Teacher/set/${results.id}`,
+                state: results
+              }}>{results.title}</Link></h3>
               <p>{results.term_count} cards</p>
               <p>created by {results.created_by}</p>
             </div>

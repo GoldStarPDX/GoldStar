@@ -15,11 +15,14 @@ export class ReturnedSet extends Component {
   }
 
   render() {
-    const { id, addCards } = this.props;
+    const { id, addCards, results } = this.props;
+    console.log('results', results);
     return (
       <div className="userContent">
-        <h2>Flash Cards</h2>
-        <form ref={(form) => this.form = form} onSubmit={(e) => e.preventDefault()}>
+        <h2>{results.title} Flash Cards</h2>
+        <p>{results.term_count} cards</p>
+        <p>created by {results.created_by}</p>
+        <form className="flashCardForm" ref={(form) => this.form = form} onSubmit={(e) => e.preventDefault()}>
           {this.props.returnedSet.map(card => {
             return <div key={card.id} className="contentWrapper">
               <input type="checkbox" className="returnedSetCheck" id={card.id} name={card.term} value={card.definition} /> 

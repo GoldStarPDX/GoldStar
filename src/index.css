@@ -242,6 +242,9 @@ header {
   display: table-cell;
 }
 
+.flashCardForm {margin-top: 2rem;}
+.fcsLabel {margin-bottom: 6px;}
+
 footer {
   margin: 3rem auto;
   width: 280px;
