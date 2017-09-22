@@ -28,7 +28,7 @@ export class Sets extends Component {
         {userSets.map(userSet => {
           return (
 
-            <div className="sets">
+            <div className="sets" key={userSet._id}>
               <div key={userSet._id} className="contentWrapper">
                 <button onClick={() => deleteSet(userSet._id)}>X</button>
                 <div className="contentContent">

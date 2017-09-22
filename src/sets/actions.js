@@ -47,8 +47,8 @@ export function deleteSet(id) {
     api.deleteSet(id)
       .then(() => {
         dispatch({type: actions.REMOVED_SET, payload: id});
-      })
-      .catch(error => {
+      },
+      error => {
         dispatch({type: actions.REMOVED_SET_ERROR, payload: error});
       });
   }; 

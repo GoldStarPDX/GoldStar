@@ -4,7 +4,6 @@ import { getSet, addCards, deleteCards } from './actions';
 import Header from '../app/Header';
 import { Search } from '../search/Search';
 import ViewSelector from '../view/ViewSelector';
-// import AddCard from './AddCard';
 
 export class Set extends Component {
   componentWillMount() {
@@ -28,6 +27,7 @@ export class Set extends Component {
         <Search onSearch={(search) => {
           history.push(`/Teacher/search/${search}`);
         }} />
+
         <div className="userContent">
           <p className="fcsLabel">Flash Card Set | {setsLength} cards</p>
           <h2>{userSet.name}</h2>
