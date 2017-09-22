@@ -10,7 +10,7 @@ export default function AddCourse({ addCourse, teacher }) {
       });
     }}>
       <input required name="title" placeholder="Name your new course" />
-      <button type="submit"> Add Course </button>
+      <button type="submit">Add</button>
     </form>
   );
 }

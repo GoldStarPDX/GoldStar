@@ -211,7 +211,8 @@ header {
   padding: 5px 50px 5px 8px;
   font-style: italic;
   font-size: .8rem;
-  margin-left: 28px;
+  background: #f7fbff;
+  border: 1px solid #a7abaf;
 }
 
 .userContent form button {
