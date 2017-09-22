@@ -29,9 +29,9 @@ export class Sets extends Component {
           return (
 
             <div className="sets">
-              <div key={userSet._id} className="setsWrapper">
+              <div key={userSet._id} className="contentWrapper">
                 <button onClick={() => deleteSet(userSet._id)}>X</button>
-                <div className="setsContent">
+                <div className="contentContent">
                   <h3><Link to={`/flashcardSets/${userSet._id}`}>{userSet.name}</Link></h3>
                   <p>number of cards: {userSet.cards.length}</p>
                 </div>

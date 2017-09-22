@@ -185,7 +185,7 @@ header {
   font-size: .8rem;
 }
 
-.setsWrapper button {
+.contentWrapper button {
   background: #944;
   color: #fff;
   font-size: 75%;
@@ -195,17 +195,13 @@ header {
   width: 20px;
 }
 
-
-
-
-
-.setsWrapper {
+.contentWrapper {
   display: table;
   width: 100%;
   margin-bottom: 1rem;
 }
 
-.setsContent {
+.contentContent {
   display: table-cell;
   width: 100%;
   padding-left: 10px;
