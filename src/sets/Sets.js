@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { getAllSets, addSet, updateSet, deleteSet } from './actions';
 import AddSet from './AddSet';
+import './Sets.css';
 
 export class Sets extends Component {
   componentWillMount() {
@@ -22,8 +23,8 @@ export class Sets extends Component {
       setMessage = 'You don\'t have any sets.';
     }
     return (
-      <div>
-        <h2>Your Flashcard Sets</h2>
+      <div className="setsDiv">
+        <h2 className="setsHeader">Your Flashcard Sets</h2>
         {setMessage}
         {userSets.map(userSet => {
           return (

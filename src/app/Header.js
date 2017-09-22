@@ -3,6 +3,7 @@ import { signout } from '../auth/actions';
 import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Logo from './Logo';
+import './App.css';
 
 function Header({ signout }) {
   return (
