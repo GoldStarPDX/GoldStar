@@ -64,8 +64,8 @@ export function removeSet(courseId, setId) {
     api.removeSet(courseId, setId) 
       .then(() => {
         dispatch({ type: actions.REMOVED_SET, payload: setId });
-      })
-      .catch(error => {
+      },
+      error => {
         dispatch({ type: actions.REMOVED_SET_ERROR, payload: error });
       });
   };

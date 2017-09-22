@@ -1,20 +1,27 @@
 import * as actions from './constants';
 
-export function course(state = {}, { type, payload }) {
+export function course(state = null, { type, payload }) {
   switch(type) {
     case actions.FETCHED_COURSE:
       return payload;
     case actions.ADDED_STUDENT:
     case actions.ADDED_SET:
+      if(!state) return state;
       return {
         ...state, 
-        flashcardSets: payload
+        flashcardSets: [...state.flashcardSets, payload]
       };
     case actions.REMOVED_STUDENT:
     case actions.REMOVED_SET:
     {
-      const index = state.findIndex(a => a._id === payload);
-      return [...state.slice(0, index), ...state.slice(index + 1)];
+      if(!state) return state;
+      const flashcardSets = state.flashcardSets;
+      const index = flashcardSets.findIndex(a => a.cardSet._id === payload);
+      return {
+        ...state,
+        flashcardSets:
+        [...flashcardSets.slice(0, index), ...flashcardSets.slice(index + 1)]
+      };
     }
     default:
       return state;

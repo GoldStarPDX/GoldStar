@@ -19,14 +19,40 @@ export class Course extends Component {
   }
 
   render() {
-    const { history, course } = this.props;
-    const { addStudent, addSet } = this.props;
-    console.log('COURSESET', course.flashcardSets);
-    let sets = course.flashcardSets;
-    const coursesLength = course.length;
-    let courseMessage = '';
-    if (coursesLength === 0) {
-      courseMessage = 'Your class is currently empty.';
+    const { history, course, addStudent, addSet } = this.props;
+    console.log('COURSE', course);
+    let content = null;
+    if (!course) {
+      content = <div>Your class is currently empty.</div>;
+    }
+    else {
+      let sets = course.flashcardSets;
+      content = (
+        <div>
+          <div className="userContent">
+            <h2>{course.title}</h2>
+
+
+            <h3>Course Roster</h3>
+            <p>Roster:{course.roster}</p>
+
+            <AddStudent onAdd={addStudent} />
+          </div>
+
+          <div className="userContent">
+            <h2>Course Flash Card Sets</h2>
+            {sets.map(set => {
+              return (
+                <div key={set._id}>
+                  <h3><Link to={`/flashcardSets/${set._id}`}>{set.cardSet ? set.cardSet.name : ''}</Link></h3>
+                </div>
+              );
+            })
+            }
+            <AddSetToCourse onAdd={(set) => addSet(course._id, set)} />
+          </div>
+        </div>
+      );
     }
     return (
       <div>
@@ -34,30 +60,8 @@ export class Course extends Component {
         <Search onSearch={(search) => {
           history.push(`/Teacher/search/${search}`);
         }} />
+        {content}
 
-
-        <div className="userContent">
-          <h2>{course.title}</h2>
-          {courseMessage}
-
-          <h3>Course Roster</h3>
-          <p>Roster:{course.roster}</p>
-
-          <AddStudent onAdd={addStudent} />
-        </div>
-
-        <div className="userContent">
-          <h2>Course Flash Card Sets</h2>
-          {/* {sets.map(set => {
-            return (
-              <div>
-                <h3><Link to={`/flashcardSets/${set._id}`}>{set.name}</Link></h3>
-              </div>
-            );
-          })
-          } */}
-          <AddSetToCourse onAdd={(set) => addSet(course._id, set)} />
-        </div>
 
       </div>
     );
