@@ -28,7 +28,7 @@ export class Set extends Component {
         <Search onSearch={(search) => {
           history.push(`/Teacher/search/${search}`);
         }} />
-        <h2>SET NAME IS ? {userSet.name}</h2>
+        <h2>{userSet.name}</h2>
         {setMessage}
         <ViewSelector cards={userSet} deleteCards={(cardId) => deleteCards(id,cardId)} setId={id} />
         {/* {userSet.map(card => {
