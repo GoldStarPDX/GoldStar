@@ -5,6 +5,7 @@ import { set } from '../set/reducers';
 import { sets } from '../sets/reducers';
 import { courses } from '../courses/reducers';
 import { course } from '../course/reducers';
+import { studentCourses } from '../studentCourses/reducers';
 
 export default combineReducers({
   auth,
@@ -13,6 +14,7 @@ export default combineReducers({
   set,
   sets,
   courses,
-  course
+  course,
+  studentCourses
 });
 
