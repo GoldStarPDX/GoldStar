@@ -4,6 +4,7 @@ import { results, returnedSet }  from '../search/reducers';
 import { set } from '../set/reducers';
 import { sets } from '../sets/reducers';
 import { courses } from '../courses/reducers';
+import { course } from '../course/reducers';
 
 export default combineReducers({
   auth,
@@ -11,6 +12,7 @@ export default combineReducers({
   returnedSet,
   set,
   sets,
-  courses
+  courses,
+  course
 });
 
