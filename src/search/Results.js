@@ -21,13 +21,20 @@ export class Results extends Component {
   render() {
     return (
       <div id="results">
-        <Link to="/Teacher" id="back">Back to Profile</Link>
-        <h2>Search results for {this.props.search}</h2>
-        <ul>{ this.props.results.map(results => {
-          return <li key={results.id}>
-            <Link to={`/Teacher/set/${results.id}`}>{results.title}</Link>
-          </li>;
-        })}</ul>
+        <div className="userContent">
+          <Link to="/Teacher" id="back">&laquo; Back to Profile</Link>
+          <h2>Search results for “{this.props.search}”</h2>
+          { this.props.results.map(results => (
+            <div key={results.id} className="contentWrapper searchResult">
+              <h3><Link to={{
+                pathname: `/Teacher/set/${results.id}`,
+                state: results
+              }}>{results.title}</Link></h3>
+              <p>{results.term_count} cards</p>
+              <p>created by {results.created_by}</p>
+            </div>
+          ))}
+        </div>
       </div>
     );
   }}

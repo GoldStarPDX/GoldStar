@@ -203,14 +203,20 @@ header {
 .contentWrapper {
   display: table;
   width: 100%;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
 }
+
+.searchResult {margin-bottom: 2rem;}
 
 .contentContent {
   display: table-cell;
   width: 100%;
   padding-left: 10px;
 }
+
+.returnedSetContent {vertical-align: top;}
+
+.addReturned a {color: #fff !important;}
 
 .userContent form input {
   padding: 5px 50px 5px 8px;
@@ -227,6 +233,52 @@ header {
   border: none;
   margin: 5px 0 0 5px;
   padding: 5px 8px;
+}
+
+.returnedSetCheck {
+  margin-right: 10px;
+  height: 20px;
+  width: 20px;
+  display: table-cell;
+}
+
+.flashCardForm {margin-top: 2rem;}
+.fcsLabel {margin-bottom: 6px;}
+
+#listGalleryView {text-align: center;}
+
+#listGalleryView button {
+  background: #474b4f;
+  color: #fff;
+  border: none;
+  padding: 5px 8px;
+  font-size: .8rem;
+  margin-bottom: 2rem;
+}
+
+#listGalleryView button.activeBtn {
+  background: #476b8f;
+  border: 1px solid #f7fbff;
+}
+
+.galleryX {
+  background: #944;
+  color: #fff;
+  font-size: 75%;
+  border: none;
+  border-radius: 10%;
+  width: 20px;
+  margin-bottom: 6px;
+}
+.galleryClick {
+  display: block;
+  margin-top: 6px;
+  font-size: .7rem;
+  color: #878b87;
+}
+#galleryBtns {
+  text-align: center;
+  margin-top: 6px;
 }
 
 footer {
