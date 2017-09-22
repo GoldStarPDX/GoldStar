@@ -7,6 +7,7 @@ export function getSet(id) {
     dispatch({type: actions.FETCHING_SET});
     api.getSet(id)
       .then(set => {
+        set.cards.name = set.name;
         dispatch({type: actions.FETCHED_SET, payload: set.cards});
       })
       .catch(error => {
