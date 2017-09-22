@@ -4,7 +4,6 @@ import { getSet, addCards, deleteCards } from './actions';
 import Header from '../app/Header';
 import { Search } from '../search/Search';
 import ViewSelector from '../view/ViewSelector';
-// import AddCard from './AddCard';
 
 export class Set extends Component {
   componentWillMount() {
@@ -31,13 +30,6 @@ export class Set extends Component {
         <h2>{userSet.name}</h2>
         {setMessage}
         <ViewSelector cards={userSet} deleteCards={(cardId) => deleteCards(id,cardId)} setId={id} />
-        {/* {userSet.map(card => {
-          return <div key={card._id}>
-            <p> {card.term} </p>
-            <p> {card.definition} </p>
-            <button onClick={() => deleteCards(id, card._id)}>delete</button>
-          </div>;
-        })} */}
       </div>
     );
   }
