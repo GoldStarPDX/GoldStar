@@ -27,9 +27,10 @@ export default class ViewSelector extends Component {
       const { cards, deleteCards } = this.props;
       return (
         <div>
-          {/* <RadioButtons views={views}/> */}
-          <button onClick={() => this.handleChange('list')}>List</button>
-          <button onClick={() => this.handleChange('gallery')}>Gallery</button>
+          <div id="listGalleryView">
+            <button onClick={() => this.handleChange('list')}>List View</button>&nbsp;
+            <button onClick={() => this.handleChange('gallery')}>Gallery View</button>
+          </div>
           <ViewDisplay view={view} cards={cards} onDelete={deleteCards} />
         </div>
       );

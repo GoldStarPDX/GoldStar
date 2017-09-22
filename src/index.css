@@ -245,6 +245,17 @@ header {
 .flashCardForm {margin-top: 2rem;}
 .fcsLabel {margin-bottom: 6px;}
 
+#listGalleryView {text-align: center;}
+
+#listGalleryView button {
+  background: #474b4f;
+  color: #fff;
+  border: none;
+  padding: 5px 8px;
+  font-size: .8rem;
+  margin-bottom: 2rem;
+}
+
 footer {
   margin: 3rem auto;
   width: 280px;

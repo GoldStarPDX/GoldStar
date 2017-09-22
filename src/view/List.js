@@ -5,15 +5,21 @@ export default class List extends Component {
   render() {
     const { cards, onDelete } = this.props;
     return (
-      <ul className="list">
+      <div>
         {cards.map(card => {
-          return <div key={card._id}>
-            <p> {card.term} </p>
-            <p> {card.definition} </p>
-            <button onClick={() => onDelete(card._id)}>delete</button>
-          </div>;
+          return (
+      
+            <div key={card._id} className="contentWrapper">
+              <button onClick={() => onDelete(card._id)}>X</button>
+              <div className="contentContent">
+                <h3> {card.term} </h3>
+                <p> {card.definition} </p>
+              </div>
+            </div>
+          );
         })}
-      </ul>
+      </div>
     );
+    
   }
 }
