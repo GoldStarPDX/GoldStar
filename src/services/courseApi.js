@@ -6,11 +6,11 @@ export default {
   },
 
   addStudent(courseId, data) {
-    return request.post(`/courses/${courseId}/students`, data);
+    return request.post(`/courses/${courseId}/roster`, data);
   },
 
   removeStudent(courseId, studentId) {
-    return request.delete(`/courses/${courseId}/students/${studentId}`);
+    return request.delete(`/courses/${courseId}/roster/${studentId}`);
   },
 
   addSet(courseId, data) {
