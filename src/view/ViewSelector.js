@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import List from './List';
 import Gallery from './Gallery';
-import { RadioGroup, RadioButton } from 'react-radio-buttons';
 
 const Views = {
   list: List,
@@ -41,16 +40,3 @@ export function ViewDisplay({ view, cards, onDelete }) {
   const View = Views[view];
   return <View cards={cards} onDelete={onDelete} />;
 }
-
-
-// function RadioButtons({ views, onChange }) {
-//   return (
-//     <RadioGroup onChange={onChange} horizontal>
-//       {views.map(view => (
-//         <RadioButton key={view} value={view}>
-//           {view}
-//         </RadioButton>
-//       ))}
-//     </RadioGroup>
-//   );
-// }
