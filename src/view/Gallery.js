@@ -20,19 +20,23 @@ export default class List extends Component {
     const currentCard = cards[this.state.index];
     let side = null;
     if (this.state.show === 'term') side = <div
-      style={{ width: 460, height: 460, color: 'black', backgroundColor: 'white', margin: '0 auto', display: 'table', textAlign: 'center', padding: 20, fontSize: 30 }}
-      onClick={() => this.handleShowChange('definition')}><p style={{verticalAlign: 'middle', display: 'table-cell' }}> {currentCard.term}</p> </div>;
+      style={{ width: '100%', maxWidth: 500, height: 400, color: 'black', backgroundColor: 'white', margin: '0 auto', display: 'table', textAlign: 'center', fontSize: 30 }}
+      onClick={() => this.handleShowChange('definition')}><div style={{verticalAlign: 'middle', display: 'table-cell' }}> {currentCard.term}<span className="galleryClick">click to view definition</span></div> </div>;
     else side = <div
-      style={{ width: 460, height: 460, color: 'black', backgroundColor: 'white', margin: '0 auto', display: 'table', textAlign: 'center', padding: 20, fontSize: 18 }}
-      onClick={() => this.handleShowChange('term')}> <p style={{verticalAlign: 'middle', display: 'table-cell' }}>{currentCard.definition}</p> </div>;
+      style={{ width: '100%', maxWidth: 500, height: 400, color: 'black', backgroundColor: 'white', margin: '0 auto', display: 'table', textAlign: 'center', fontSize: 18 }}
+      onClick={() => this.handleShowChange('term')}> <div style={{verticalAlign: 'middle', display: 'table-cell' }}>{currentCard.definition}<span className="galleryClick">click to view term</span></div></div>;
 
     return (
-      <ul className="list">
-        {side}
-        <button disabled={this.state.index === 0} onClick={() => this.setState({ index: this.state.index - 1 })}>Previous</button>
-        <button onClick={() => onDelete(currentCard._id)}>delete</button>
-        <button disabled={this.state.index === cards.length - 1} onClick={() => this.setState({ index: this.state.index + 1 })}>Next</button>
-      </ul>
+      <div>
+        <button className="galleryX" onClick={() => onDelete(currentCard._id)}>X</button>
+        <ul className="list">
+          {side}
+          <div id="galleryBtns">
+            <button disabled={this.state.index === 0} onClick={() => this.setState({ index: this.state.index - 1 })}>Previous</button>
+            <button disabled={this.state.index === cards.length - 1} onClick={() => this.setState({ index: this.state.index + 1 })}>Next</button>
+          </div>
+        </ul>
+      </div>
     );
   }
 }
