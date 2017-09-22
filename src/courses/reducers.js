@@ -1,13 +1,13 @@
 import * as actions from './constants';
 
-export function courses(state = [], action) {
-  switch(action.type) {
+export function courses(state = [], { type, payload }) {
+  switch(type) {
     case actions.FETCHED_COURSES:
-      return action.payload;
+      return payload;
     case actions.ADDED_COURSE:
-      return [...state, action.payload];
+      return [...state, payload];
     case actions.REMOVED_COURSE: {
-      const index = state.findIndex(a => a._id === action.payload);
+      const index = state.findIndex(a => a._id === payload);
       return [...state.slice(0, index), ...state.slice(index + 1)];
     }
     default:

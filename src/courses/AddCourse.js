@@ -1,15 +1,16 @@
 import React from 'react';
 
-function AddCourse({ addCourse }) {
+export default function AddCourse({ addCourse, teacher }) {
   return (
     <form onSubmit={e => {
       e.preventDefault();
-      addCourse({ name: e.target.elements.name.value });
+      addCourse({ 
+        title: e.target.elements[0].value, 
+        teacher: teacher
+      });
     }}>
-      <input required name="name"/>
+      <input required name="title" placeholder="Name your new course" />
       <button type="submit"> Add Course </button>
     </form>
   );
 }
-
-export default AddCourse;

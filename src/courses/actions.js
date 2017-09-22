@@ -16,14 +16,14 @@ export function getCourses() {
   };
 }
 
-export function addClass(course) {
+export function addCourse(course) {
 
   return dispatch => {
     dispatch({ type: actions.ADDING_COURSE });
 
     api.add(course)
-      .then(saved => {
-        dispatch({ type: actions.ADDED_COURSE, payload: saved });
+      .then(course => {
+        dispatch({ type: actions.ADDED_COURSE, payload: course });
       })
       .catch(error => {
         dispatch({ type: actions.ADDED_COURSE_ERROR, payload: error });
