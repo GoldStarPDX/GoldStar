@@ -31,7 +31,7 @@ export class Course extends Component {
           history.push(`/Teacher/search/${search}`);
         }} />
         {courseMessage}
-        <AddStudent onAdd={addStudent} />
+        <AddStudent addStudent={addStudent} course={course._id} />
         <AddSet onAdd={addSet} />
         <p>Roster:{course.roster}</p>
       </div>
