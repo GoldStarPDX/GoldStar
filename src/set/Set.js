@@ -28,16 +28,12 @@ export class Set extends Component {
         <Search onSearch={(search) => {
           history.push(`/Teacher/search/${search}`);
         }} />
-        <h2>{userSet.name}</h2>
-        {setMessage}
-        <ViewSelector cards={userSet} deleteCards={(cardId) => deleteCards(id,cardId)} setId={id} />
-        {/* {userSet.map(card => {
-          return <div key={card._id}>
-            <p> {card.term} </p>
-            <p> {card.definition} </p>
-            <button onClick={() => deleteCards(id, card._id)}>delete</button>
-          </div>;
-        })} */}
+        <div className="userContent">
+          <p className="fcs-label">Flash Card Set</p>
+          <h2>{userSet.name}</h2>
+          {setMessage}
+          <ViewSelector cards={userSet} deleteCards={(cardId) => deleteCards(id,cardId)} setId={id} />
+        </div>
       </div>
     );
   }
