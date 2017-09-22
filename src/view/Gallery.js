@@ -28,8 +28,8 @@ export default class List extends Component {
 
     return (
       <ul className="list">
-        <button disabled={this.state.index === 0} onClick={() => this.setState({ index: this.state.index - 1 })}>Previous</button>
         {side}
+        <button disabled={this.state.index === 0} onClick={() => this.setState({ index: this.state.index - 1 })}>Previous</button>
         <button onClick={() => onDelete(currentCard._id)}>delete</button>
         <button disabled={this.state.index === cards.length - 1} onClick={() => this.setState({ index: this.state.index + 1 })}>Next</button>
       </ul>
