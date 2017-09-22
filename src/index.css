@@ -242,6 +242,45 @@ header {
   display: table-cell;
 }
 
+.flashCardForm {margin-top: 2rem;}
+.fcsLabel {margin-bottom: 6px;}
+
+#listGalleryView {text-align: center;}
+
+#listGalleryView button {
+  background: #474b4f;
+  color: #fff;
+  border: none;
+  padding: 5px 8px;
+  font-size: .8rem;
+  margin-bottom: 2rem;
+}
+
+#listGalleryView button.activeBtn {
+  background: #476b8f;
+  border: 1px solid #f7fbff;
+}
+
+.galleryX {
+  background: #944;
+  color: #fff;
+  font-size: 75%;
+  border: none;
+  border-radius: 10%;
+  width: 20px;
+  margin-bottom: 6px;
+}
+.galleryClick {
+  display: block;
+  margin-top: 6px;
+  font-size: .7rem;
+  color: #878b87;
+}
+#galleryBtns {
+  text-align: center;
+  margin-top: 6px;
+}
+
 footer {
   margin: 3rem auto;
   width: 280px;

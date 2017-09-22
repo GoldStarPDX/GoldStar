@@ -29,7 +29,7 @@ export class Set extends Component {
           history.push(`/Teacher/search/${search}`);
         }} />
         <div className="userContent">
-          <p className="fcs-label">Flash Card Set</p>
+          <p className="fcsLabel">Flash Card Set | {setsLength} cards</p>
           <h2>{userSet.name}</h2>
           {setMessage}
           <ViewSelector cards={userSet} deleteCards={(cardId) => deleteCards(id,cardId)} setId={id} />
