@@ -32,6 +32,7 @@ export class Course extends Component {
         <Search onSearch={(search) => {
           history.push(`/Teacher/search/${search}`);
         }} />
+
         
         <div className="userContent">
           <h2>{course.title}</h2>
@@ -49,6 +50,7 @@ export class Course extends Component {
           <h2>Course Flash Card Sets</h2>
           <AddSet onAdd={addSet} />
         </div>
+
       </div>
     );
   }
