@@ -1,6 +1,6 @@
 import * as actions from './constants';
 
-export function course(state = [], { type, payload }) {
+export function course(state = {}, { type, payload }) {
   switch(type) {
     case actions.FETCHED_COURSE:
       return payload;
