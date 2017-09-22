@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 import { getSetResults } from './actions';
 // import AddCards from '../set/AddCards';
 import { addCards } from '../set/actions';
@@ -36,10 +37,9 @@ export class ReturnedSet extends Component {
                 quizletId: element.id
               };
             });
-            console.log('CHECKED IS',checked);
             addCards(set._id, checked);
           }}>
-            Add to {set.name}</button>;
+            <Link to={`/flashcardSets/${set._id}`}>Add to {set.name}</Link></button>;
         }
         )}
       </form>
