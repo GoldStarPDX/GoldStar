@@ -7,10 +7,9 @@ export default class List extends Component {
   }
 
   render() {
-    const { cards, onDelete, setId } = this.props;
+    const { cards, onDelete } = this.props;
     return (
       <ul className="list">
-        <p>MY LIST IS </p>
         {cards.map(card => {
           return <div key={card._id}>
             <p> {card.term} </p>

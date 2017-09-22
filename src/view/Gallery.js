@@ -19,21 +19,16 @@ export default class List extends Component {
     const { cards, onDelete } = this.props;
     const currentCard = cards[this.state.index];
     let side = null;
-    if (this.state.show === 'term') side = <div onClick={() => this.handleShowChange('definition')}> {currentCard.term} </div>;
-    else side = <div onClick={() => this.handleShowChange('term')}> {currentCard.definition} </div>;
+    if (this.state.show === 'term') side = <div
+      style={{ width: 500, height: 500, color: 'black', backgroundColor: 'white', margin: '0 auto', display: 'table', textAlign: 'center', padding: 20, fontSize: 30 }}
+      onClick={() => this.handleShowChange('definition')}><p style={{verticalAlign: 'middle', display: 'table-cell' }}> {currentCard.term}</p> </div>;
+    else side = <div
+      style={{ width: 500, height: 500, color: 'black', backgroundColor: 'white', margin: '0 auto', display: 'table', textAlign: 'center', padding: 20, fontSize: 18 }}
+      onClick={() => this.handleShowChange('term')}> <p style={{verticalAlign: 'middle', display: 'table-cell' }}>{currentCard.definition}</p> </div>;
 
     return (
       <ul className="list">
-        <p>MY GALLERY</p>
         <button disabled={this.state.index === 0} onClick={() => this.setState({ index: this.state.index - 1 })}>Previous</button>
-        {/* {currentCard.term}
-        {currentCard.definition} */}
-        {/* {cards.map(card => {
-          if(this.state.show === 'term') side = <div onClick={() => this.handleShowChange('definition')}> {card.term} </div>;
-          else side = <div onClick={() => this.handleShowChange('term')}> {card.definition} </div>;
-          return <div key={card._id}>
-          </div>;
-        })} */}
         {side}
         <button onClick={() => onDelete(currentCard._id)}>delete</button>
         <button disabled={this.state.index === cards.length - 1} onClick={() => this.setState({ index: this.state.index + 1 })}>Next</button>
