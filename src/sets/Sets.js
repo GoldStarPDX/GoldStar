@@ -29,7 +29,7 @@ export class Sets extends Component {
         {userSets.map(userSet => {
           return (
 
-            <div>
+            <div className="sets">
               <div key={userSet._id}>
                 <h3><Link to={`/flashcardSets/${userSet._id}`}>{userSet.name}</Link></h3>
                 <p>Number of Cards: {userSet.cards.length}</p>

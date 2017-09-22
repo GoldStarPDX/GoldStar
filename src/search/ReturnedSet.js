@@ -2,9 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { getSetResults } from './actions';
-// import AddCards from '../set/AddCards';
 import { addCards } from '../set/actions';
-
+import './Results.css';
 
 export class ReturnedSet extends Component {
   componentWillMount(){
@@ -20,7 +19,7 @@ export class ReturnedSet extends Component {
     return (
       <form ref={(form) => this.form = form} onSubmit={(e) => e.preventDefault()}>
         {this.props.returnedSet.map(card => {
-          return <div key={card.id}>
+          return <div key={card.id} className="cardTerms">
             <input type="checkbox" id={card.id} name={card.term} value={card.definition} /> 
             <label htmlFor={card.term}>
               <h3>{card.term}</h3>

@@ -22,7 +22,7 @@ export default class Profile extends Component {
             this.props.updateImage(this.props.status, { photo: e.target.elements.photo.value });
           }}>
             <input type="text" name="photo" />
-            <input type="submit" />
+            <input type="submit" className="submitButton" />
           </form>
         </div>
       </div>

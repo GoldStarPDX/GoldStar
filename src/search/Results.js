@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getSearchResults }from './actions';
 import { Link } from 'react-router-dom';
+import './Results.css';
 
 export class Results extends Component {
   componentWillMount(){
@@ -19,8 +20,8 @@ export class Results extends Component {
   
   render() {
     return (
-      <div>
-        <Link to="/Teacher">Back to Profile</Link>
+      <div id="results">
+        <Link to="/Teacher" id="back">Back to Profile</Link>
         <h2>Search results for {this.props.search}</h2>
         <ul>{ this.props.results.map(results => {
           return <li key={results.id}>
