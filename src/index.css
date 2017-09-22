@@ -114,7 +114,7 @@ header {
   float: right;
   padding: 30px 12px 0 0;
   text-align: right;
-  font-size: .8rem;
+  font-size: .9rem;
 }
 
 #flashcardSearch {
@@ -160,4 +160,69 @@ header {
 
 *:focus {
   outline: none;
+}
+
+.userContent {
+  max-width: 500px;
+  padding: 2rem 1rem;
+  margin: 0 auto;
+}
+
+.userContent h2 {
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  border-bottom: 1px solid #878b8f;
+}
+
+.userContent h3 {
+  font-weight: 700;
+  font-size: 1.1rem;
+  margin-bottom: 6px;
+}
+
+.userContent p {
+  font-size: .8rem;
+}
+
+.setsWrapper button {
+  background: #944;
+  color: #fff;
+  font-size: 75%;
+  border: none;
+  border-radius: 10%;
+  display: table-cell;
+  width: 20px;
+}
+
+
+
+
+
+.setsWrapper {
+  display: table;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.setsContent {
+  display: table-cell;
+  width: 100%;
+  padding-left: 10px;
+}
+
+.userContent form input {
+  padding: 5px 50px 5px 8px;
+  font-style: italic;
+  font-size: .8rem;
+  margin-left: 28px;
+}
+
+.userContent form button {
+  background: #474b4f;
+  color: #fff;
+  font-size: 75%;
+  border: none;
+  margin: 5px 0 0 5px;
+  padding: 5px 8px;
 }

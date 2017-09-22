@@ -15,14 +15,15 @@ export default class Profile extends Component {
     return (
       <div>
         <div id="profileDiv">
-          <h2 className="profile"><span className="loggedInAs">{this.props.status} name: </span> {this.props.profileName}</h2>
+          <p>{this.props.status} name</p>
+          <h2 className="profile">{this.props.profileName}</h2>
           <img src={profileImg} alt="Profile" id="profile-img" />
           <form onSubmit={(e) => {
             e.preventDefault();
             this.props.updateImage(this.props.status, { photo: e.target.elements.photo.value });
           }}>
-            <input type="text" name="photo" />
-            <input type="submit" className="submitButton" />
+            <input type="text" name="photo" placeholder="enter URL of new photo" />
+            <input type="submit" className="submitButton" value="update" />
           </form>
         </div>
       </div>

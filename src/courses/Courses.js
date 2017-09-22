@@ -15,8 +15,8 @@ export class Courses extends Component {
     const { removeCourse, addCourse } = this.props;
 
     return(
-      <div>
-        <h2>Current Courses</h2>
+      <div className="userContent">
+        <h2>Your Courses</h2>
         <ul>
           {courses.map(({_id, title}) => (
             <li key={_id}>
