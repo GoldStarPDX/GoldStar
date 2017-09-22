@@ -16,18 +16,19 @@ export class Courses extends Component {
 
     return(
       <div>
-        <h2>Current Courses</h2>
-        <ul>
+        <div className="userContent">
+          <h2>Your Courses</h2>
           {courses.map(({_id, title}) => (
-            <li key={_id}>
-              <Link to={`/courses/${_id}`}>
-                {title}
-              </Link>
-              <button className="action" onClick={() => removeCourse(_id)}> Remove </button>
-            </li>
+            <div key={_id} className="contentWrapper">
+              <button onClick={() => removeCourse(_id)}>X</button>
+              <div className="contentContent">
+                <h3><Link to={`/courses/${_id}`}>{title}</Link></h3>
+                <p>number of students: ?</p>
+              </div>
+            </div>
           ))}
-        </ul>
-        <AddCourse addCourse={addCourse} teacher={teacher} />
+          <AddCourse addCourse={addCourse} teacher={teacher} />
+        </div>
       </div>
     );
   }

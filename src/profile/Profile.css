@@ -1,12 +1,21 @@
-.profileDiv {
-    font-family: 'Montserrat', sans-serif;
-    margin-left: 50px; 
-    margin-bottom: 50px;  
+#profileDiv {
+    max-width: 500px;
+    padding: 2rem 1rem;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#profileDiv h2 {margin-bottom: 6px;}
+
+#profile-img {
+    width: 100%;
+    height: auto;
+    border: 1px solid #878b8f;
 }
 
 a, a:visited {
     text-decoration: none;
-    color: black;
+    color: #477baf;
 }
 
 .profile {
@@ -14,12 +23,19 @@ a, a:visited {
     font-size: 1.5rem;
 }
 
+#profileDiv input[type=text] {
+    padding: 5px 80px 5px 8px;
+    font-style: italic;
+    font-size: 50%;
+    background: #f7fbff;
+    border: 1px solid #a7abaf;
+}
+
 .submitButton {
-    background: #444;
+    background: #474b4f;
     color: #fff;
-    font-size: 75%;
+    font-size: 50%;
     border: none;
-    border-radius: 10%;
-    margin-left: 10px;
-    margin-top: 10px;
+    margin: 5px 0 0 5px;
+    padding: 5px 8px;
 }

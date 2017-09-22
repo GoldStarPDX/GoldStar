@@ -7,7 +7,7 @@ export default function AddSet({ onAdd }) {
       onAdd({name: e.target.elements[0].value});   
     }}>
       <input name="set" placeholder="Name your new set" />
-      <button type="submit"> Add Set </button>
+      <button type="submit">Add</button>
     </form>
   );
 }
