@@ -44,7 +44,7 @@ export default class Teacher extends Component {
             </div>
           )} />
           <Route path="/Teacher/search/:search" render={({ match }) => <Results search={match.params.search} />} />
-          <Route path="/Teacher/set/:id" render={({ match }) => <ReturnedSet id={match.params.id} />} />
+          <Route path="/Teacher/set/:id" render={({ match, location }) => <ReturnedSet id={match.params.id} results={location.state} />} />
         </Switch>
 
       </div>

@@ -1,8 +1,7 @@
 #back {
-    text-decoration: none;
-    color: black;
-    font-size: 1rem;
-    margin-bottom: 200px;
+    font-size: .8rem;
+    margin-bottom: 1rem;
+    display: block;
 }
 
 #results {
@@ -17,11 +16,6 @@
 #results li {
     list-style-type: none;
     margin: 10px 0;
-}
-
-.cardTerms {
-    display: flex;
-    flex-direction: row;
 }
 
 

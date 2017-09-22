@@ -27,8 +27,14 @@ export default class ViewSelector extends Component {
       const { cards, deleteCards } = this.props;
       return (
         <div>
-          <button onClick={() => this.handleChange('list')}>List</button>
-          <button onClick={() => this.handleChange('gallery')}>Gallery</button>
+          <div id="listGalleryView">
+            <button className={
+              view === 'list' ? 'activeBtn' : ''
+            } onClick={() => this.handleChange('list')}>List View</button>&nbsp;
+            <button className={
+              view === 'gallery' ? 'activeBtn' : ''
+            } onClick={() => this.handleChange('gallery')}>Gallery View</button>
+          </div>
           <ViewDisplay view={view} cards={cards} onDelete={deleteCards} />
         </div>
       );
