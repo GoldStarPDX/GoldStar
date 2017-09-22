@@ -1,12 +1,25 @@
-.profileDiv {
-    font-family: 'Montserrat', sans-serif;
-    margin-left: 50px; 
-    margin-bottom: 50px;  
+#profileDiv {
+    max-width: 500px;
+    padding: 3rem 1rem;
+    margin: 0 auto;
+}
+
+#profileDiv h2 {margin-bottom: 6px;}
+
+.loggedInAs {
+    font-weight: 400;
+    font-size: 1rem;
+}
+
+#profile-img {
+    width: 100%;
+    height: auto;
+    border: 1px solid #878b8f;
 }
 
 a, a:visited {
     text-decoration: none;
-    color: black;
+    color: #477baf;
 }
 
 .profile {
@@ -15,7 +28,7 @@ a, a:visited {
 }
 
 .submitButton {
-    background: #444;
+    background: #474b4f;
     color: #fff;
     font-size: 75%;
     border: none;

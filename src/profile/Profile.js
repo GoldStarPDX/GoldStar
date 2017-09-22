@@ -14,9 +14,9 @@ export default class Profile extends Component {
 
     return (
       <div>
-        <div className="profileDiv">
-          <h2 className="profile">{this.props.profileName}</h2>
-          <img src={profileImg} alt="Profile" />
+        <div id="profileDiv">
+          <h2 className="profile"><span className="loggedInAs">{this.props.status} name: </span> {this.props.profileName}</h2>
+          <img src={profileImg} alt="Profile" id="profile-img" />
           <form onSubmit={(e) => {
             e.preventDefault();
             this.props.updateImage(this.props.status, { photo: e.target.elements.photo.value });
