@@ -15,8 +15,7 @@ export class Set extends Component {
   }
 
   render() {
-    const { history } = this.props;
-    const { userSet } = this.props;
+    const { history, userSet, deleteCards, id } = this.props;
     const setsLength = userSet.length;
     let setMessage = '';
     if (setsLength === 0) {
@@ -28,14 +27,15 @@ export class Set extends Component {
         <Search onSearch={(search) => {
           history.push(`/Teacher/search/${search}`);
         }} />
-        <h1>Hello There</h1>
+        <h2>NAME IS {userSet.name}</h2>
         {setMessage}
         
         {userSet.map(card => {
-          console.log(card);
           return <div key={card._id}>
+            <p> {card._id} </p>
             <p> {card.term} </p>
             <p> {card.definition} </p>
+            <button onClick={() => deleteCards(id, card._id)}>delete</button>
           </div>;
         })}
       </div>
