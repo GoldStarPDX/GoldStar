@@ -6,6 +6,7 @@ import Home from '../home/Home';
 import Teacher from '../users/Teacher';
 import Student from '../users/Student';
 import Set from '../set/Set';
+import Course from '../course/Course';
 
 import PrivateRoute from './PrivateRoutes';
 
@@ -15,7 +16,7 @@ export const Routes = ({ user }) => {
       <PrivateRoute path="/Teacher" render={({history}) => <Teacher status="Teacher" history={history} />} />
       <PrivateRoute path="/Student" render={() => <Student status="Student" />}/> 
       <PrivateRoute path="/flashcardSets/:id" render={({ match, history }) => <Set id={match.params.id} history={history}/>} /> />
-      {/* <PrivateRoute path="/Teacher/search" render={() => <Search />} */}
+      <PrivateRoute path="/courses/:id" render={({ match, history }) => <Course id={match.params.id} history={history}/>} /> />
       <Redirect to={`/${user.status}`} />
     </Switch>
   );
