@@ -6,7 +6,6 @@ import Header from '../app/Header';
 import { Search } from '../search/Search';
 import AddSetToCourse from './AddSetToCourse';
 import AddStudent from './AddStudent';
-import Set from '../set/Set';
 
 export class Course extends Component {
 
@@ -20,7 +19,6 @@ export class Course extends Component {
 
   render() {
     const { history, course, addStudent, addSet } = this.props;
-    console.log('COURSE', course);
     let content = null;
     if (!course) {
       content = <div>Your class is currently empty.</div>;
@@ -61,8 +59,6 @@ export class Course extends Component {
           history.push(`/Teacher/search/${search}`);
         }} />
         {content}
-
-
       </div>
     );
   }
@@ -72,11 +68,6 @@ export default connect(
   state => {
     return { course: state.course };
   },
-  {
-    getCourse,
-    addStudent,
-    removeStudent,
-    addSet,
-    removeSet
+  { getCourse, addStudent, removeStudent, addSet, removeSet
   }
 )(Course);

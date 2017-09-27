@@ -21,13 +21,13 @@ export class Sets extends Component {
     if (setsLength === 0) {
       setMessage = 'You don\'t have any sets.';
     }
+    
     return (
       <div className="userContent">
         <h2>Your Flashcard Sets</h2>
         {setMessage}
         {userSets.map(userSet => {
           return (
-
             <div className="sets" key={userSet._id}>
               <div key={userSet._id} className="contentWrapper">
                 <button onClick={() => deleteSet(userSet._id)}>X</button>

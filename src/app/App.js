@@ -7,7 +7,7 @@ import Footer from './Footer';
 import './App.css';
 
 class App extends Component {
-  componentDidMount(){
+  componentDidMount() {
     this.props.checkForToken();
   }
   render() {

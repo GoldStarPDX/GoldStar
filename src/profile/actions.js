@@ -3,6 +3,7 @@ import api from '../services/authApi';
 
 
 export function getProfile(status) {
+  
   return dispatch => {
     dispatch({ type: actions.FETCHING_PROFILE });
 
@@ -17,6 +18,7 @@ export function getProfile(status) {
 }
 
 export function updateImage(status, data) {
+  
   return dispatch => {
     dispatch({ type: actions.UPDATING_IMAGE });
 

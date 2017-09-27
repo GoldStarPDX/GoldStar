@@ -1,8 +1,8 @@
-/* SETS ACTIONS */
 import * as actions from './constants';
 import api from '../services/setsApi';
 
 export function getAllSets() {
+  
   return dispatch => {
     dispatch({type: actions.FETCHING_SETS});
     api.getAllSets()
@@ -16,6 +16,7 @@ export function getAllSets() {
 }
 
 export function addSet(set) {
+  
   return dispatch => {
     dispatch({type: actions.ADDING_SET});
     api.addSet(set)
@@ -29,6 +30,7 @@ export function addSet(set) {
 }
 
 export function updateSet(id) {
+  
   return dispatch => {
     dispatch({type: actions.UPDATING_SET});
     api.updateSet(id)
@@ -42,6 +44,7 @@ export function updateSet(id) {
 }
 
 export function deleteSet(id) {
+  
   return dispatch => {
     dispatch({type: actions.REMOVING_SET});
     api.deleteSet(id)

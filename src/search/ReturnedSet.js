@@ -15,8 +15,8 @@ export class ReturnedSet extends Component {
   }
 
   render() {
-    const { id, addCards, results } = this.props;
-    console.log('results', results);
+    const { addCards, results } = this.props;
+
     return (
       <div className="userContent">
         <h2>{results.title} Flash Cards</h2>

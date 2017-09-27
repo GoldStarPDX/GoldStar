@@ -4,6 +4,7 @@ import flashcardSetApi from '../services/flashcardSetApi';
 
 
 export function getSearchResults(search) {
+  
   return dispatch => {
     searchApi.getSearch({ search })
       .then(results => {
@@ -13,6 +14,7 @@ export function getSearchResults(search) {
 }
 
 export function getSetResults(id) {
+  
   return dispatch => {
     flashcardSetApi.getflashcardSet(id)
       .then(set => {

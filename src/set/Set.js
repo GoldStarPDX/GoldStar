@@ -21,13 +21,13 @@ export class Set extends Component {
     if (setsLength === 0) {
       setMessage = 'You don\'t have any cards.';
     }
+    
     return (
       <div>
         <Header />
         <Search onSearch={(search) => {
           history.push(`/Teacher/search/${search}`);
         }} />
-
         <div className="userContent">
           <p className="fcsLabel">Flash Card Set | {setsLength} cards</p>
           <h2>{userSet.name}</h2>
