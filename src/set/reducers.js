@@ -1,4 +1,3 @@
-/* SET REDUCERS */
 import * as actions from './constants';
 
 export function set(state = [], { type, payload }) {
@@ -30,5 +29,3 @@ export function setError(state = null, { type, payload }) {
       return state;
   }
 }
-
-// TODO: teacher set, teacher set error, cry.

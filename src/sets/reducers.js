@@ -1,4 +1,3 @@
-/* SETS REDUCERS */
 import * as actions from './constants';
 
 export function sets(state = [], { type, payload }) {

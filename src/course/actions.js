@@ -2,6 +2,7 @@ import * as actions from './constants';
 import api from '../services/courseApi';
 
 export function getCourse(id) {
+  
   return dispatch => {
     dispatch({ type: actions.FETCHING_COURSE });
 
@@ -16,6 +17,7 @@ export function getCourse(id) {
 }
 
 export function addStudent(courseId, data) {
+  
   return dispatch => {
     dispatch({ type: actions.ADDING_STUDENT });
 
@@ -30,6 +32,7 @@ export function addStudent(courseId, data) {
 }
 
 export function removeStudent(courseId, studentId) {
+  
   return dispatch => {
     dispatch({ type: actions.REMOVING_STUDENT });
 
@@ -44,6 +47,7 @@ export function removeStudent(courseId, studentId) {
 }
 
 export function addSet(courseId, data) {
+  
   return dispatch => {
     dispatch({ type: actions.ADDING_SET });
 
@@ -58,6 +62,7 @@ export function addSet(courseId, data) {
 }
 
 export function removeSet(courseId, setId) {
+  
   return dispatch => {
     dispatch({ type: actions.REMOVING_SET });
 
@@ -70,5 +75,3 @@ export function removeSet(courseId, setId) {
       });
   };
 }
-
-

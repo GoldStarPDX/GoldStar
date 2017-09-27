@@ -10,25 +10,10 @@ import Results from '../search/Results';
 import ReturnedSet from '../search/ReturnedSet';
 
 export default class Teacher extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      searchResults: []
-    };
-    this.handleSearchResults.bind(this);
-  }
-
-  handleSearchResults(search) {
-    searchApi.getSearch({ search })
-      .then(results => {
-        this.setState({
-          searchResults: results
-        });
-      });
-  }
 
   render() {
     const { history, status } = this.props;
+    
     return (
       <div>
         <Header />

@@ -1,4 +1,3 @@
-/* SET API */
 import { request } from './request';
 
 export default {
