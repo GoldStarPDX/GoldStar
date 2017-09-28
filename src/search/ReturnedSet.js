@@ -22,7 +22,9 @@ export class ReturnedSet extends Component {
         <h2>{results.title} Flash Cards</h2>
         <p>{results.term_count} cards</p>
         <p>created by {results.created_by}</p>
+
         <form className="flashCardForm" ref={(form) => this.form = form} onSubmit={(e) => e.preventDefault()}>
+          
           {this.props.returnedSet.map(card => {
             return <div key={card.id} className="contentWrapper">
               <input type="checkbox" className="returnedSetCheck" id={card.id} name={card.term} value={card.definition} /> 
@@ -32,19 +34,27 @@ export class ReturnedSet extends Component {
               </label>
             </div>;
           })}
+
           {this.props.sets.map(set => {
-            return <button className="addReturned" onClick={() => {
-              let checked = [...this.form.elements].filter(element => element.checked).map(element => {
-                return {
-                  term: element.name,
-                  definition: element.value,
-                  quizletId: element.id
-                };
-              });
-              addCards(set._id, checked);
-            }}>
-              <Link to={`/flashcardSets/${set._id}`}>Add selected to <strong>{set.name}</strong></Link>
-            </button>;
+            return (
+              <button className="addReturned" onClick={() => {
+                let checked = [...this.form.elements]
+                  .filter(element => element.checked)
+                  .map(element => ({
+                    term: element.name,
+                    definition: element.value,
+                    quizletId: element.id
+                  }));
+                
+                addCards(set._id, checked);
+              }}>
+
+                <Link to={`/flashcardSets/${set._id}`}>
+                  Add selected to <strong>{set.name}</strong>
+                </Link>
+              
+              </button>
+            );
           }
           )}
         </form>

@@ -19,11 +19,14 @@ export class Results extends Component {
   }
   
   render() {
+    // more whitespace, help the reader see the sections of code
     return (
       <div id="results">
         <div className="userContent">
+
           <Link to="/Teacher" id="back">&laquo; Back to Profile</Link>
           <h2>Search results for “{this.props.search}”</h2>
+          
           { this.props.results.map(results => (
             <div key={results.id} className="contentWrapper searchResult">
               <h3><Link to={{
@@ -34,6 +37,7 @@ export class Results extends Component {
               <p>created by {results.created_by}</p>
             </div>
           ))}
+
         </div>
       </div>
     );
@@ -43,6 +47,5 @@ export default connect(
   state => {
     return { results: state.results };
   },
-
   { getSearchResults }
 )(Results);

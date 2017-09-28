@@ -4,11 +4,11 @@ import * as actions from './actions';
 import Profile from './Profile';
 
 
-function mapStateToProps(state) {
+function mapStateToProps({ auth }) {
   return {
-    profileName: state.auth.user.name,
-    profileImg: state.auth.user.photo,
-    error: state.auth.error
+    profileName: auth.user.name,
+    profileImg: auth.user.photo,
+    error: auth.error
   };
 }
 

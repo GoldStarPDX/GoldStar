@@ -17,7 +17,7 @@ function Auth({ user, signin, signup, error, location, status }) {
         <Welcome />
         <div id="credentials">
           <Switch>
-            <Route path={`/auth${status}/signin`} component={() => (
+            <Route path={`/auth${status}/signin`} render={() => (
               <div>
                 <h2>{status} Sign In</h2>
                 <Credentials submit={(credentials) => signin(credentials, status)} />
