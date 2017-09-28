@@ -9,8 +9,9 @@ export function getCourse(id) {
     api.getCourse(id)
       .then(course => {
         dispatch({ type: actions.FETCHED_COURSE, payload: course });
-      })
-      .catch(error => {
+      },
+      //etc...
+      error => {
         dispatch({ type: actions.FETCHED_COURSE_ERROR, payload: error });
       });
   };

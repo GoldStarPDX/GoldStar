@@ -1,5 +1,7 @@
 # GoldStar
 
+initial grading commit
+
 ## Teacher Stories:
 
 - As a teacher who is new to the site I want to learn more about the product by viewing a landing page/seeing the features that are available.

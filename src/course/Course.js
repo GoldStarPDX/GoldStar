@@ -24,33 +24,9 @@ export class Course extends Component {
       content = <div>Your class is currently empty.</div>;
     }
     else {
-      let sets = course.flashcardSets;
-      content = (
-        <div>
-          <div className="userContent">
-            <h2>{course.title}</h2>
-
-
-            <h3>Course Roster</h3>
-            <p>Roster:{course.roster}</p>
-
-            <AddStudent onAdd={addStudent} />
-          </div>
-
-          <div className="userContent">
-            <h2>Course Flash Card Sets</h2>
-            {sets.map(set => {
-              return (
-                <div key={set._id}>
-                  <h3><Link to={`/flashcardSets/${set._id}`}>{set.cardSet ? set.cardSet.name : ''}</Link></h3>
-                </div>
-              );
-            })
-            }
-            <AddSetToCourse onAdd={(set) => addSet(course._id, set)} />
-          </div>
-        </div>
-      );
+      // This makes it much easier to see what is happening in this
+      // render function
+      content = <CourseDetail course={course} onAddStudent={addStudent} onAddSet={addSet} />;
     }
     return (
       <div>
@@ -71,3 +47,33 @@ export default connect(
   { getCourse, addStudent, removeStudent, addSet, removeSet
   }
 )(Course);
+
+function CourseDetail({ course, onAddStudent, onAddSet }) {
+  let sets = course.flashcardSets;
+  return (
+    <div>
+      <div className="userContent">
+        <h2>{course.title}</h2>
+
+
+        <h3>Course Roster</h3>
+        <p>Roster:{course.roster}</p>
+
+        <AddStudent onAdd={onAddStudent} />
+      </div>
+
+      <div className="userContent">
+        <h2>Course Flash Card Sets</h2>
+        {sets.map(set => {
+          return (
+            <div key={set._id}>
+              <h3><Link to={`/flashcardSets/${set._id}`}>{set.cardSet ? set.cardSet.name : ''}</Link></h3>
+            </div>
+          );
+        })
+        }
+        <AddSetToCourse onAdd={(set) => onAddSet(course._id, set)} />
+      </div>
+    </div>
+  );
+}
